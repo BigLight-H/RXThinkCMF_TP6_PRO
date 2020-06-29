@@ -22,8 +22,23 @@
     "require": {
         "php": ">=7.1.0",
         "topthink/framework": "^6.0.0",
+        "topthink/think-image": "^1.0",
+        "topthink/think-captcha": "^3.0.3",
         "topthink/think-orm": "^2.0",
-        "topthink/think-multi-app": "^1.0"
+        "topthink/think-multi-app": "^1.0",
+        "topthink/think-view": "^1.0",
+        "overtrue/pinyin": "~4.0",
+        "phpmailer/phpmailer": "^6.0",
+        "phpoffice/phpexcel": "^1.8",
+        "phpoffice/phpword": "^0.14.0",
+        "aliyuncs/oss-sdk-php": "^2.3",
+        "qiniu/php-sdk": "^7.2",
+        "endroid/qrcode": "^3.5",
+        "jpush/jpush": "*",
+        "php-amqplib/php-amqplib": "2.7.*",
+        "alibabacloud/sdk": "^1.7",
+        "php-ffmpeg/php-ffmpeg": "^0.14.0",
+        "topthink/think-template": "^2.0"
     },
     "require-dev": {
         "symfony/var-dumper": "^4.2",

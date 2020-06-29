@@ -24,6 +24,7 @@ return [
         'www'          =>  'index',
         'admin'        =>  'admin',
         'm'            =>  'm',
+        'api'          =>  'api',
         'script'       =>  'script',
     ],
     // 禁止URL访问的应用列表（自动多应用模式有效）

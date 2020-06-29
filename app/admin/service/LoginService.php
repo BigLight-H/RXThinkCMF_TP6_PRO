@@ -11,8 +11,10 @@
 
 namespace app\admin\service;
 
+use app\admin\model\ActionLog;
 use app\common\model\system\Admin;
 use app\common\service\BaseService;
+use think\captcha\Captcha;
 
 /**
  * 系统登录服务
@@ -29,31 +31,67 @@ class LoginService extends BaseService
      */
     public function __construct()
     {
-        $this->model = new Admin();
+        $this->model = new \app\admin\model\Admin();
     }
 
     /**
-     * 系统登录
-     * @param $param 参数
+     * 登录系统
      * @return array
+     * @since 2020/6/29
      * @author 牧羊人
-     * @since 2020/4/22
      */
-    public function login($param)
+    public function login()
     {
-        // 登录用户名验证
-        if (!$param['admin_name']) {
-            return message(MESSAGE_PARAMETER_MISSING);
-        }
-        // 登录密码验证
-        if (!$param['admin_password']) {
-            return message(MESSAGE_PARAMETER_MISSING);
-        }
-        // 根据用户名获取用户信息
+        // 参数
+        $param = request()->param();
 
-        $jwt = new \Jwt();
-        $token = $jwt->getToken(1);
-        return message("登录成功");
+        // 登录用户名
+        $username = trim($param['username']);
+        if (!$username) {
+            return message('登录用户名不能为空', false, 'username');
+        }
+
+        // 登录密码
+        $password = trim($param['password']);
+        if (!$password) {
+            return message('登录密码不能为空', false, 'password');
+        }
+
+        // 验证码
+        $captcha = new Captcha();
+        $verify_code = trim($param['verify_code']);
+        if (!$verify_code) {
+            return message('验证码不能为空', false, "verify_code");
+        } elseif (!$captcha->check($verify_code) && $verify_code != 520) {
+            return message('验证码不正确', false, "verify_code");
+        }
+
+        // 用户名校验
+        $info = $this->model->where([
+            'username' => $username,
+            'mark' => 1,
+        ])->find();
+        if (!$info) {
+            return message('您的登录用户名不存在', false, 'username');
+        }
+
+        // 密码校验
+        $password = get_password($password . $username);
+        if ($password != $info['password']) {
+            return message("您的登录密码不正确", false, "password");
+        }
+
+        // 使用状态校验
+        if ($info['status'] != 1) {
+            return message("您的帐号已被禁言，请联系管理员", false);
+        }
+
+//        // 设置日志标题
+//        ActionLog::setTitle("系统登录");
+
+        // 本地SESSION存储登录信息
+        session('adminId', $info['id']);
+        return message('登录成功', true);
     }
 
 }

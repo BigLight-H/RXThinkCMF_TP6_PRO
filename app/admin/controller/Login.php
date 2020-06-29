@@ -13,6 +13,7 @@ namespace app\admin\controller;
 
 use app\admin\service\LoginService;
 use app\common\controller\Backend;
+use think\View;
 
 /**
  * 后台登陆控制器
@@ -34,13 +35,41 @@ class Login extends Backend
     }
 
     /**
-     * 系统登录
+     * 登录首页
+     * @return mixed
      * @author 牧羊人
-     * @since 2020/4/22
+     * @date 2019/4/18
+     */
+    public function index()
+    {
+        // 取消模板布局
+        $this->app->view->layout(false);
+        return \think\facade\View::fetch();
+    }
+
+    /**
+     * 系统登录
+     * @return mixed
+     * @author 牧羊人
+     * @date 2019/4/18
      */
     public function login()
     {
-        $result = $this->service->login($this->param);
-        $this->jsonReturn($result);
+        if (IS_POST) {
+            $result = $this->service->login();
+            return $result;
+        }
     }
+
+    /**
+     * 退出系统
+     * @author 牧羊人
+     * @since 2020/6/29
+     */
+    public function logout()
+    {
+        session('admin_id', null);
+        $this->redirect('/login/index');
+    }
+
 }
