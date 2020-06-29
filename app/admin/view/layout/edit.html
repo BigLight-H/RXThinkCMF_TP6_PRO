@@ -1,0 +1,28 @@
+<form class="layui-form model-form" action="">
+	<input name="id" id="id" type="hidden" value="{$info.id|default=0}">
+	<input name="type_id" id="type_id" type="hidden" value="{$info.type_id|default=0}">
+	<div class="layui-form-item">
+		<label class="layui-form-label">封面：</label>
+		{:widget('upload/uploadSingleImage',array('image',isset($info['image_url']) ? $info['image_url'] : '','90x90','封面'))}
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">页面位置：</label>
+		{:widget('layout/layoutSelect',array(isset($info['page_id']) ? $info['page_id'] : 0,isset($info['loc_id']) ? $info['loc_id'] : 0,2))}
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">推荐类型：</label>
+		<div class="layui-input-inline">
+			{:widget('common/singleSelect',array('type|1|推荐类型|name|id',config('config.layout_type'),isset($info['type']) ? $info['type'] : 0))}
+		</div>
+		<div class="layui-input-inline">
+			<input name="type_desc" id="type_value" value="{$info.type_desc|default=''}" lay-verify="" autocomplete="off" placeholder="请选择模块对象" class="layui-input" type="text" readonly="">
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">序号：</label>
+		<div class="layui-input-inline">
+			<input name="sort" id="sort" value="{$info.sort|default=125}" lay-verify="required|number" autocomplete="off" placeholder="请输入序号" class="layui-input" type="text">
+		</div>
+	</div>
+	{:widget('common/submitBtn',array('submit|立即保存,close|关闭', 1))}
+</form>

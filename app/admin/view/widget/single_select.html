@@ -1,0 +1,4 @@
+<select name="{$name}" id="{$name}" {if $is_require==1}lay-verify="required"{/if} lay-search="" lay-filter="{$name}">
+	<option value="">【请选择{$show_tips}】</option>
+	{$data_list|make_option=$selected_id,$show_name,$show_value}
+</select>

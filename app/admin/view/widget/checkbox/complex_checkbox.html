@@ -1,0 +1,5 @@
+{if $complex_checkbox_list}
+	{volist name="complex_checkbox_list" id="val"}
+	<input type="checkbox" name="{$name}[{$val['show_value']}]" title="{$val['show_name']}" {if $val.checked eq 1}checked=""{/if}>
+	{/volist}
+{/if}

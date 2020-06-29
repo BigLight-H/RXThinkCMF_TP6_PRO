@@ -1,0 +1,106 @@
+<!-- 正文开始 -->
+<link rel="stylesheet" type="text/css" href="__ADMIN__/lib/ztree/css/zTreeStyle/zTreeStyle.css">
+<script type="text/javascript" src="__ADMIN__/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__ADMIN__/lib/ztree/js/jquery.ztree.all.min.js"></script>
+<style>
+    .ztree li {
+        padding-top: 12px;
+    }
+</style>
+
+<!-- Tree载体 -->
+<div id="leftTree">
+    <ul id="{$name}" class="ztree" style="overflow-y: scroll;"></ul>
+</div>
+
+<script>
+    layui.use(['jquery'], function () {
+        var $ = layui.$;
+
+        // 配置信息
+        var setting = {
+            async: {
+                enable: true,
+                url: '{$url}',
+                autoParam: ['id', 'name=n', 'level=lv'],
+                dataFilter: filter
+            },
+            callback: {
+                onClick: onClick
+            }
+        };
+
+        /**
+         * 数据过滤
+         * @param treeId
+         * @param parentNode
+         * @param childNodes
+         * @returns {null|*}
+         */
+        function filter(treeId, parentNode, childNodes) {
+            if (!childNodes) return null;
+            for (var i = 0, l = childNodes.length; i < l; i++) {
+
+            }
+            return childNodes;
+        }
+
+        /**
+         * 节点单击事件
+         * @param e
+         * @param treeId
+         * @param treeNode
+         */
+        function onClick(e, treeId, treeNode) {
+            var zTree = $.fn.zTree.getZTreeObj("{$name}");
+            zTree.expandNode(treeNode);
+            layer.msg("您点击了节点:" + treeNode.name);
+            $('#main_right', window.parent.document).attr('src', treeNode.url);
+        }
+
+        /**
+         * 初始化节点
+         */
+        $(document).ready(function () {
+            $.fn.zTree.init($("#{$name}"), setting);
+        });
+
+        /**
+         * 设置树父容器最大高度
+         */
+        initHeight('leftTree', 120);
+
+        /**
+         * 设置树节点最大高度
+         */
+        initHeight('{$name}', 140);
+    });
+
+    /**
+     * 初始化窗体高度
+     * @param form_id
+     * @param height
+     */
+    function initHeight(form_id, height = 0) {
+        var ifrm = parent.document.getElementById(form_id);
+        try {
+            var doc = this.document;
+            ifrm.style.height = (getDocHeight(doc) - height) + 'px';
+        } catch (ex) {
+        }
+    }
+
+    /**
+     * 获取文档高度
+     * @param doc
+     * @returns {number}
+     */
+    function getDocHeight(doc) {
+        doc = doc || document;
+        var body = doc.body, html = doc.documentElement;
+        var height = Math.max(body.scrollHeight, body.offsetHeight,
+            html.clientHeight, html.scrollHeight, html.offsetHeight);
+        return height;
+    }
+
+</script>

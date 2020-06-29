@@ -1,0 +1,12 @@
+<input name="{$name}" id="{$name}" {if $checked_id eq 1}checked{/if} value="{if $checked_id eq 1}1{else}2{/if}" lay-skin="switch" lay-filter="{$name}" lay-text="{$title}" type="checkbox">
+<script>
+layui.use(['form'], function(){
+	var form = layui.form,
+		$ = layui.$;
+	
+	form.on('switch({$name})', function(data) {
+		console.log('switch开关选择状态：'+this.checked);
+	    $(data.elem).attr('type', 'hidden').val(this.checked ? 1 : 2);
+	});
+});
+</script>

@@ -1,0 +1,5 @@
+{if $radio_list}
+	{volist name="radio_list" id="val"}
+	<input type="radio" name="{$name}" value="{$val.show_value}" title="{$val.show_name}" {if $val.checked}checked=""{/if}>
+	{/volist}
+{/if}

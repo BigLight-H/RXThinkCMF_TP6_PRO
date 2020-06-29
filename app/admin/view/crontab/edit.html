@@ -1,0 +1,73 @@
+<form class="layui-form model-form" action="">
+	<input name="id" id="id" type="hidden" value="{$info.id|default=0}">
+	<div class="layui-form-item">
+		<div class="layui-inline">
+			<label class="layui-form-label">任务标题：</label>
+			<div class="layui-input-inline">
+				<input name="title" id="title" value="{$info.title|default=''}" lay-verify="required" autocomplete="off" placeholder="请输入任务标题" class="layui-input" type="text">
+			</div>
+		</div>
+		<div class="layui-inline">
+			<label class="layui-form-label">任务类型：</label>
+			<div class="layui-input-inline">
+				{:widget('common/singleSelect',array('type|1|任务类型|name|id',config('config.crontab_type'),isset($info['type']) ? $info['type'] : 1))}
+			</div>
+		</div>
+	</div>
+	<div class="layui-form-item layui-form-text" style="width:665px;">
+		<label class="layui-form-label">内容：</label>
+		<div class="layui-input-block">
+			<textarea name="content" id="content" placeholder="请输入内容" class="layui-textarea">{$info.content|default=''}</textarea>
+		</div>
+	</div>
+	<div class="layui-form-item" style="width:665px;">
+		<label class="layui-form-label">执行周期：</label>
+		<div class="layui-input-block">
+			<input name="schedule" id="schedule" value="{$info.schedule|default=''}" lay-verify="required" autocomplete="off" placeholder="请输入执行周期" class="layui-input" type="text">
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<div class="layui-inline">
+			<label class="layui-form-label">最多执行：</label>
+			<div class="layui-input-inline">
+				<input name="maximums" id="maximums" value="{$info.maximums|default=''}" lay-verify="required" autocomplete="off" placeholder="请输入最多执行次数" class="layui-input" type="number">
+			</div>
+		</div>
+		<div class="layui-inline">
+			<label class="layui-form-label">接下来：</label>
+			<div class="layui-input-inline">
+				<input id="pickdays" value="0" lay-verify="required" autocomplete="off" placeholder="请输入执行周期" class="layui-input" type="number">
+			</div>
+			<div class="layui-form-mid layui-word-aux">次的执行时间</div>
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<div class="layui-inline">
+			<label class="layui-form-label">开始时间：</label>
+			<div class="layui-input-inline">
+				<input name="start_time" id="start_time" value="{$info.format_start_time|default=''}" lay-verify="datetime" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input date-icon" type="text">
+			</div>
+		</div>
+		<div class="layui-inline">
+			<label class="layui-form-label">结束时间：</label>
+			<div class="layui-input-inline">
+				<input name="end_time" id="end_time" value="{$info.format_end_time|default=''}" lay-verify="datetime" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input date-icon" type="text">
+			</div>
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<div class="layui-inline">
+			<label class="layui-form-label">权重：</label>
+			<div class="layui-input-inline">
+				<input name="weigh" id="weigh" value="{$info.weigh|default=0}" lay-verify="required" autocomplete="off" placeholder="请输入执行周期" class="layui-input" type="text">
+			</div>
+		</div>
+		<div class="layui-inline">
+			<label class="layui-form-label">状态：</label>
+			<div class="layui-input-block">
+				{:widget('common/switchCheck',array('status','在用|禁用',isset($info['status']) ? $info['status'] : 1))}
+			</div>
+		</div>
+	</div>
+	{:widget('common/submitBtn',array('submit|立即保存,close|关闭', 1))}
+</form>
