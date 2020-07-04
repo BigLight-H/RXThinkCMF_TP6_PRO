@@ -16,36 +16,30 @@
 	</div>
 	<div class="layui-form-item">
 		<div class="layui-inline">
-			<label class="layui-form-label">来源类型：</label>
+			<label class="layui-form-label">行为类型：</label>
 			<div class="layui-input-inline">
-				{:widget('common/singleSelect',array('source_type|1|来源类型|name|id',config('config.action_source_type'),isset($info['source_type']) ? $info['source_type'] : 0))}
+				{common:select param="type|1|行为类型|name|id" data="$typeList" value="isset($info['type']) ? $info['type'] : 1"}
 			</div>
 		</div>
 		<div class="layui-inline">
-			<label class="layui-form-label">所属模块：</label>
+			<label class="layui-form-label">执行类型：</label>
 			<div class="layui-input-inline">
-				{:widget('common/singleSelect',array('source_type|1|来源类型|name|id',config('config.action_source_type'),isset($info['source_type']) ? $info['source_type'] : 0))}
+				{common:select param="execution|1|执行类型|name|id" data="$executionList" value="isset($info['execution']) ? $info['execution'] : 1"}
 			</div>
 		</div>
 	</div>
 	<div class="layui-form-item">
 		<div class="layui-inline">
-			<label class="layui-form-label">行为执行类型：</label>
-			<div class="layui-input-block">
-				{:widget('common/singleSelect',array('action_type|1|行为执行类型|name|id',config('config.action_type'),isset($info['action_type']) ? $info['action_type'] : 0))}
+			<label class="layui-form-label">所属模块：</label>
+			<div class="layui-input-inline">
+				{common:select param="module|1|所属模块|name|id" data="$moduleList" value="isset($info['module']) ? $info['module'] : 1"}
 			</div>
 		</div>
 		<div class="layui-inline">
 			<label class="layui-form-label">行为状态：</label>
-			<div class="layui-input-block">
-				{:widget('common/switchCheck',array('status','在用|禁用',isset($info['status']) ? $info['status'] : 1))}
+			<div class="layui-input-inline">
+				{common:switch name="status" title="在用|停用" value="isset($info['status']) ? $info['status'] : 1"}
 			</div>
-		</div>
-	</div>
-	<div class="layui-form-item layui-form-text">
-		<label class="layui-form-label">行为描述：</label>
-		<div class="layui-input-block">
-			<textarea name="description" id="description" placeholder="请输入行为描述" class="layui-textarea">{$info.description|default=''}</textarea>
 		</div>
 	</div>
 	<div class="layui-form-item">
@@ -60,5 +54,11 @@
 			<input name="log" id="log" value="{$info.log|default=''}" lay-verify="required" autocomplete="off" placeholder="请输入日志规则" class="layui-input" type="text">
 		</div>
 	</div>
-	{:widget('common/submitBtn',array('submit|立即保存,close|关闭', 1))}
+	<div class="layui-form-item layui-form-text">
+		<label class="layui-form-label">行为描述：</label>
+		<div class="layui-input-block">
+			<textarea name="description" id="description" placeholder="请输入行为描述" class="layui-textarea">{$info.description|default=''}</textarea>
+		</div>
+	</div>
+	{widget:submit name="submit|立即保存,close|关闭"}
 </form>

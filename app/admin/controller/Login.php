@@ -68,8 +68,10 @@ class Login extends Backend
      */
     public function logout()
     {
-        session('admin_id', null);
-        $this->redirect('/login/index');
+        // 清空SESSION
+        session('adminId', null);
+        // 跳转登录页
+        return redirect("/login/index");
     }
 
 }

@@ -11,9 +11,9 @@
 			<div class="layui-form-item">
 				<div class="layui-inline">
 					<div class="layui-input-inline" style="width: auto;">
-						{:widget('func/btnBackup',array('立即备份'))}
-						{:widget('func/btnOptimize',array('优化表'))}
-						{:widget('func/btnRepair',array('修复表'))}
+						{widget:btn name="立即备份" event="backup" icon="layui-icon-set-fill" color="layui-btn-normal" type="1"}
+						{widget:btn name="优化表" event="optimize" icon="layui-icon-component" color="layui-btn-warm" type="1"}
+						{widget:btn name="修复表" event="repair" icon="layui-icon-util" color="layui-bg-cyan" type="1"}
 					</div>
 				</div>
 			</div>
@@ -25,8 +25,8 @@
 	
 	<!-- 操作功能区二 -->
 	<script type="text/html" id="toolBar">
-	  	{:widget('func/btnEdit',array('优化表'))}
-		{:widget('func/btnDel',array('修复表'))}
+		{widget:btn name="优化表" event="optimize" icon="layui-icon-component"}
+		{widget:btn name="修复表" event="repair" icon="layui-icon-util"}
 	</script>
 	
 {/block}

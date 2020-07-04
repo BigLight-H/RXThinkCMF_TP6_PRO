@@ -15,10 +15,22 @@
 				</div>
 			</div>
 			<div class="layui-inline">
+				<label class="layui-form-label">友链类型：</label>
+				<div class="layui-input-inline">
+					{common:select param="type|0|友链类型|name|id" data="$typeList" value="0"}
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">所属平台：</label>
+				<div class="layui-input-inline">
+					{common:select param="platform|0|所属平台|name|id" data="$platformList" value="0"}
+				</div>
+			</div>
+			<div class="layui-inline">
 				<div class="layui-input-inline" style="width: auto;">
-					{:widget('func/btnQuery',array('查询'))}
-					{:widget('func/btnAdd',array('添加友链'))}
-					{:widget('func/btnDAll',array('批量删除'))}
+					{widget:query name="查询"}
+					{widget:add name="添加友链"}
+					{widget:dall name="批量删除"}
 				</div>
 			</div>
 		</div>
@@ -29,8 +41,8 @@
 	
 	<!-- 操作功能区二 -->
 	<script type="text/html" id="toolBar">
-		{:widget('func/btnEdit',array('编辑'))}
-		{:widget('func/btnDel',array('删除'))}
+		{widget:edit name="编辑"}
+		{widget:delete name="删除"}
 	</script>
 
 {/block}

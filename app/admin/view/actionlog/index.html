@@ -9,16 +9,15 @@
 	<form class="layui-form toolbar">
 		<div class="layui-form-item">
 			<div class="layui-inline">
-				<label class="layui-form-label w-auto">行为名称：</label>
+				<label class="layui-form-label w-auto">行为标题：</label>
 				<div class="layui-input-inline mr0">
 					<input type="text" name="title" placeholder="请输入行为名称" autocomplete="off" class="layui-input">
 				</div>
 			</div>
 			<div class="layui-inline">
 				<div class="layui-input-inline" style="width: auto;">
-					{:widget('func/btnQuery',array('查询'))}
-					{:widget('func/btnAdd', array('添加角色'))}
-					{:widget('func/btnDAll',array('批量删除'))}
+					{widget:query name="查询"}
+					{widget:dall name="批量删除"}
 				</div>
 			</div>
 		</div>
@@ -29,8 +28,7 @@
 
 	<!-- 操作功能区二 -->
 	<script type="text/html" id="toolBar">
-		{:widget('func/btnDetail',array('详情'))}
-		{:widget('func/btnDel',array('删除'))}
+		{widget:delete name="删除"}
 	</script>
 
 {/block}

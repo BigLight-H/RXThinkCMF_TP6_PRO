@@ -1,7 +1,7 @@
 /**
- * 系统人员
- *  @auth 牧羊人
- * @date 2019/5/7
+ * 人员管理
+ * @author 牧羊人
+ * @since 2020/7/4
  */
 layui.use(['function', 'laydate', 'admin', 'zTree'], function () {
     var laydate = layui.laydate,
@@ -24,7 +24,6 @@ layui.use(['function', 'laydate', 'admin', 'zTree'], function () {
                     return avatarStr;
                 }
             }
-            , {field: 'num', width: 100, title: '工号', align: 'center', edit: 'text'}
             , {field: 'realname', width: 100, title: '真实姓名', align: 'center'}
             , {field: 'gender_name', width: 60, title: '性别', align: 'center'}
             , {field: 'position_name', width: 120, title: '职位', align: 'center'}
@@ -48,7 +47,7 @@ layui.use(['function', 'laydate', 'admin', 'zTree'], function () {
 
         //【TABLE渲染】
         func.tableIns(cols, "tableList", function (layEvent, data) {
-            if (layEvent === 'setAuth') {
+            if (layEvent === 'permission') {
 
                 admin.open({
                     title: '角色权限分配',

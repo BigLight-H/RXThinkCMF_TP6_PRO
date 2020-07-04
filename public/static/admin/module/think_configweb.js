@@ -1,7 +1,7 @@
 /**
  * 网站配置
- * @auth 牧羊人
- * @date 2020/01/03
+ * @author 牧羊人
+ * @since 2020/7/4
  */
 layui.use(['function', 'form'], function () {
 

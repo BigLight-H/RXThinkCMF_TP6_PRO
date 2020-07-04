@@ -11,10 +11,10 @@
 </style>
 <div class="layui-input-block">
 	<div class="layui-upload-drag">
-	 	<a href="{if $img_url neq null}{$img_url}{else}javascript:void(0);{/if}" {if $img_url neq null}target="black"{/if}>
-	 		<img id="{$name}_show_id" src="{if $img_url neq null}{$img_url}{else}__ADMIN__/images/default_upload.png{/if}" alt="上传图片" width="{$img_width}" height="{$img_height}">
-	 	</a>
-	 	<input type="hidden" id="{$name}" name="{$name}" value="{if $img_hidden neq null}{$img_hidden}{/if}">
+		<a href="<?php echo $img_url;?>" target="black">
+			<img id="{$name}_show_id" src="<?php echo $img_url;?>" alt="上传{$title}" title="上传{$title}" width="{$img_width}" height="{$img_height}">
+		</a>
+	 	<input type="hidden" id="{$name}" name="{$name}" value="<?php echo $img_url;?>">
 	</div>
 	<div style="margin-top:10px;">
 		<button type="button" class="layui-btn" id="btnUploadImg_{$name}"><i class="layui-icon">&#xe67c;</i>上传{$title}</button>
@@ -59,9 +59,9 @@ layui.use(['upload','croppers'],function(){
 			,url: "/upload/uploadImage"
 			,accept:'images'
 			,acceptMime:'image/*'
-			,exts: "{$uploadImgExt}"
+			,exts: "{$exts}"
 			,field:'file'//文件域字段名
-			,size: {$uploadImgSize} //最大允许上传的文件大小
+			,size: {$size} //最大允许上传的文件大小
 			,before: function(obj){
 				//预读本地文件
 			}

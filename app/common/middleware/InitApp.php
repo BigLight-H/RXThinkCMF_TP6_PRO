@@ -62,8 +62,8 @@ class InitApp
         // 文件上传路径
         $upload_parh = \think\Facade\Filesystem::getDiskConfig(config('filesystem.default'), 'root');
         define('ATTACHMENT_PATH', $upload_parh);
-        define('IMG_PATH', ATTACHMENT_PATH . "/images/");
-        define('UPLOAD_TEMP_PATH', ATTACHMENT_PATH . '/temp/');
+        define('IMG_PATH', ATTACHMENT_PATH . "/images");
+        define('UPLOAD_TEMP_PATH', IMG_PATH . '/temp');
 
         // 系统配置
         define('SITE_NAME', env('system.sitename'));
@@ -72,7 +72,7 @@ class InitApp
 
         // 系统域名
         define('SITE_URL', env('domain.siteurl'));
-        define('IMAGE_URL', env('domain.imageurl'));
+        define('IMG_URL', env('domain.img_url'));
     }
 
     /**

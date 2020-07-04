@@ -1,7 +1,7 @@
 /**
  * 职级管理
- * @auth 牧羊人
- * @date 2018/4/30
+ * @author 牧羊人
+ * @since 2020/7/4
  */
 layui.use(['function'], function () {
     //声明变量
@@ -31,10 +31,10 @@ layui.use(['function'], function () {
                     return str;
                 }
             }
-            , {field: 'format_create_user', width: 100, title: '创建人', align: 'center'}
-            , {field: 'format_create_time', width: 180, title: '创建时间', align: 'center', sort: true}
-            , {field: 'format_update_time', width: 180, title: '更新时间', align: 'center', sort: true}
             , {field: 'sort', width: 80, title: '排序', align: 'center'}
+            , {field: 'create_user_name', width: 100, title: '创建人', align: 'center'}
+            , {field: 'create_time', width: 180, title: '创建时间', align: 'center', sort: true}
+            , {field: 'update_time', width: 180, title: '更新时间', align: 'center', sort: true}
             , {fixed: 'right', width: 150, title: '功能操作', align: 'center', toolbar: '#toolBar'}
         ];
 

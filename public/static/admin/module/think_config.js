@@ -1,7 +1,7 @@
 /**
- * 配置
- * @auth 牧羊人
- * @date 2019/2/24
+ * 配置管理
+ * @author 牧羊人
+ * @since 2020/7/4
  */
 layui.use(['function', 'form'], function () {
 
@@ -34,9 +34,9 @@ layui.use(['function', 'form'], function () {
                 }
             }
             , {field: 'sort', width: 100, title: '排序', align: 'center'}
-            , {field: 'format_create_user', width: 100, title: '创建人', align: 'center'}
-            , {field: 'format_create_time', width: 180, title: '创建时间', align: 'center', sort: true}
-            , {field: 'format_update_time', width: 180, title: '更新时间', align: 'center', sort: true}
+            , {field: 'create_user_name', width: 100, title: '创建人', align: 'center'}
+            , {field: 'create_time', width: 180, title: '创建时间', align: 'center', sort: true}
+            , {field: 'update_time', width: 180, title: '更新时间', align: 'center', sort: true}
             , {fixed: 'right', width: 150, title: '功能操作', align: 'center', toolbar: '#toolBar'}
         ];
 
@@ -48,7 +48,7 @@ layui.use(['function', 'form'], function () {
         func.tableIns(cols, "tableList", null, url);
 
         //【设置弹框】
-        func.setWin("配置项");
+        func.setWin("配置项", 700, 650);
 
     } else {
         // 【日期选择】

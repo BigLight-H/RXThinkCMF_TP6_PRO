@@ -18,13 +18,13 @@
 		<div class="layui-inline">
 			<label class="layui-form-label">友链类型：</label>
 			<div class="layui-input-inline">
-				{:widget('common/singleSelect',array('type|1|友链类型|name|id',config('config.link_type'),isset($info['type']) ? $info['type'] : 0))}
+				{common:select param="type|1|友链类型|name|id" data="$typeList" value="isset($info['type']) ? $info['type'] : 1"}
 			</div>
 		</div>
 		<div class="layui-inline">
-			<label class="layui-form-label">使用平台：</label>
-			<div class="layui-input-block">
-				{:widget('common/singleSelect',array('platform|1|所属平台|name|id',config('config.link_platform'),isset($info['platform']) ? $info['platform'] : 1))}
+			<label class="layui-form-label">所属平台：</label>
+			<div class="layui-input-inline">
+				{common:select param="platform|1|所属平台|name|id" data="$platformList" value="isset($info['platform']) ? $info['platform'] : 1"}
 			</div>
 		</div>
 	</div>
@@ -32,19 +32,19 @@
 		<div class="layui-inline">
 			<label class="layui-form-label">友链形式：</label>
 			<div class="layui-input-inline">
-				{:widget('common/singleSelect',array('form|1|友链形式|name|id',config('config.link_form'),isset($info['form']) ? $info['form'] : 1))}
+				{common:select param="form|1|友链形式|name|id" data="$formList" value="isset($info['form']) ? $info['form'] : 1"}
 			</div>
 		</div>
 		<div class="layui-inline">
 			<label class="layui-form-label">状态：</label>
 			<div class="layui-input-inline">
-				{:widget('common/switchCheck',array('status','正常|停用',isset($info['status']) ? $info['status'] : 2))}
+				{common:switch name="status" title="在用|停用" value="isset($info['status']) ? $info['status'] : 1"}
 			</div>
 		</div>
 	</div>
 	<div class="layui-form-item layui-hide image">
 		<label class="layui-form-label">友链图片：</label>
-		{:widget('upload/uploadSingleImage',array('image',isset($info['image_url']) ? $info['image_url'] : '','90x90'))}
+		{upload:image name="image|图片|90x90|建议上传尺寸450x450" value="isset($info['image_url']) ? $info['image_url'] : ''"}
 	</div>
 	<div class="layui-form-item">
 		<label class="layui-form-label">序号：</label>
@@ -52,5 +52,5 @@
 			<input name="sort" id="sort" value="{$info.sort|default=125}" lay-verify="required|number" autocomplete="off" placeholder="请输入序号" class="layui-input" type="text">
 		</div>
 	</div>
-	{:widget('common/submitBtn',array('submit|立即保存,close|关闭', 1))}
+	{widget:submit name="submit|立即保存,close|关闭"}
 </form>

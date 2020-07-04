@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## 1.8.348 - 2020-6-30
+- Generated 2018-10-12 for `Airec`.
+
+
+## 1.8.347 - 2020-6-29
+- Supported Rotate.
+
+
+## 1.8.346 - 2020-6-29
+- Generated 2019-12-26 for `OutboundBot`.
+
+
+## 1.8.345 - 2020-6-29
+- Generated 2019-12-26 for `OutboundBot`.
+
+
+## 1.8.344 - 2020-6-29
+- Supported Rotate.
+
+
 ## 1.8.343 - 2020-6-29
 - Supported gb28181 parent platform.
 

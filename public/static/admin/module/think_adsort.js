@@ -1,7 +1,7 @@
 /**
- * 广告位描述
- * @auth 牧羊人
- * @date 2019/5/6
+ * 广告位管理
+ * @author 牧羊人
+ * @since 2020/7/4
  */
 layui.use(['function'], function () {
     var func = layui.function,
@@ -16,11 +16,11 @@ layui.use(['function'], function () {
             , {field: 'item_name', width: 100, title: '所属站点', align: 'center'}
             , {field: 'cate_name', width: 250, title: '所属栏目', align: 'center'}
             , {field: 'loc_id', width: 100, title: '广告位置', align: 'center'}
-            , {field: 'platform_name', width: 100, title: '所属平台', align: 'center'}
+            , {field: 'platform_name', width: 100, title: '投放平台', align: 'center'}
             , {field: 'description', width: 250, title: '描述', align: 'center'}
-            , {field: 'format_create_user', width: 80, title: '创建人', align: 'center'}
-            , {field: 'format_create_time', width: 180, title: '创建时间', align: 'center', sort: true}
             , {field: 'sort', width: 80, title: '排序', align: 'center'}
+            , {field: 'create_user', width: 80, title: '创建人', align: 'center'}
+            , {field: 'create_time', width: 180, title: '创建时间', align: 'center', sort: true}
             , {fixed: 'right', width: 150, title: '功能操作', align: 'center', toolbar: '#toolBar'}
         ];
 
@@ -28,6 +28,6 @@ layui.use(['function'], function () {
         func.tableIns(cols, "tableList");
 
         //【设置弹框】
-        func.setWin("广告位");
+        func.setWin("广告位", 750, 480);
     }
 });

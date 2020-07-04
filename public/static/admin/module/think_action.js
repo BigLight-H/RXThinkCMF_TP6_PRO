@@ -1,7 +1,7 @@
 /**
- * 行为
- * @auth 牧羊人
- * @date 2019/5/14
+ * 行为管理
+ * @author 牧羊人
+ * @since 2020/7/4
  */
 layui.use(['function'], function () {
 
@@ -16,8 +16,9 @@ layui.use(['function'], function () {
             , {field: 'id', width: 80, title: 'ID', align: 'center', sort: true, fixed: 'left'}
             , {field: 'name', width: 200, title: '标识', align: 'center'}
             , {field: 'title', width: 150, title: '行为名称', align: 'center'}
-            , {field: 'source_type_name', width: 100, title: '来源类型', align: 'center'}
-            , {field: 'module_name', width: 100, title: '所属模块名', align: 'center'}
+            , {field: 'module', width: 100, title: '应用模块', align: 'center'}
+            , {field: 'type_name', width: 100, title: '来源类型', align: 'center'}
+            , {field: 'execution_name', width: 100, title: '执行类型', align: 'center'}
             , {field: 'rule', width: 200, title: '行为规则', align: 'center'}
             , {field: 'log', width: 200, title: '日志规则', align: 'center'}
             , {field: 'description', width: 300, title: '行为描述', align: 'center'}
@@ -32,9 +33,8 @@ layui.use(['function'], function () {
                     return str;
                 }
             }
-            , {field: 'format_create_user', width: 100, title: '创建人', align: 'center', sort: true}
-            , {field: 'format_create_time', width: 180, title: '创建时间', align: 'center', sort: true}
-            , {field: 'format_update_time', width: 180, title: '更新时间', align: 'center', sort: true}
+            , {field: 'create_time', width: 180, title: '创建时间', align: 'center', sort: true}
+            , {field: 'update_time', width: 180, title: '更新时间', align: 'center', sort: true}
             , {fixed: 'right', width: 150, title: '功能操作', align: 'center', toolbar: '#toolBar'}
         ];
 
@@ -42,6 +42,6 @@ layui.use(['function'], function () {
         func.tableIns(cols, "tableList");
 
         //【设置弹框】
-        func.setWin("行为", 750, 530);
+        func.setWin("行为", 700, 530);
     }
 });

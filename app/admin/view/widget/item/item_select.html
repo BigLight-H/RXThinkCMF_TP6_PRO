@@ -1,9 +1,11 @@
-{if $item_list neq null}
-	{volist name="item_list" id="vo"}
+{if $itemList neq null}
+	{volist name="itemList" id="vo"}
 	<div class="layui-input-inline">
 		<select name="{$vo.code}_id" id="{$vo.code}_id" lay-filter="{$vo.code}_id" lay-search="">
 			<option value="">【请选择{$vo.tname}】</option>
-			{$vo['list']|make_option=$vo['selected'],'name','id'}
+			{volist name="vo['list']" id="val"}
+				<option value="{$val.id}" {if $val.id==$vo['selected']}selected=""{/if}>{$val.name}</option>
+			{/volist}
 		</select>
 	</div>
 	{/volist}
@@ -24,7 +26,7 @@ layui.use(['form'],function(){
 		var select = data.othis;
 		if (select[0]) {
 			if (id > 0) {
-				$.post("/ItemCate/getChilds", { 'item_id':id }, function(data){
+				$.post("/itemcate/getCateList", { 'item_id':id }, function(data){
 					if (data.success) {
 						var str = "";
 						$.each(data.data, function(i,item){

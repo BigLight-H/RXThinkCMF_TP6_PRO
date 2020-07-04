@@ -11,10 +11,8 @@
 
 namespace app\admin\service;
 
-use app\admin\model\ActionLog;
-use app\common\model\system\Admin;
+use app\admin\model\Admin;
 use app\common\service\BaseService;
-use think\captcha\Captcha;
 
 /**
  * 系统登录服务
@@ -31,7 +29,7 @@ class LoginService extends BaseService
      */
     public function __construct()
     {
-        $this->model = new \app\admin\model\Admin();
+        $this->model = new Admin();
     }
 
     /**
@@ -56,14 +54,18 @@ class LoginService extends BaseService
         if (!$password) {
             return message('登录密码不能为空', false, 'password');
         }
-
         // 验证码
-        $captcha = new Captcha();
-        $verify_code = trim($param['verify_code']);
-        if (!$verify_code) {
-            return message('验证码不能为空', false, "verify_code");
-        } elseif (!$captcha->check($verify_code) && $verify_code != 520) {
-            return message('验证码不正确', false, "verify_code");
+        $captcha = trim($param['captcha']);
+        if (!$captcha) {
+            return message("", false);
+        }
+        // 验证码
+        $captcha = trim($param['captcha']);
+        if (!$captcha) {
+            return message('验证码不能为空', false, "captcha");
+        } elseif (!captcha_check($captcha) && $captcha != 520) {
+            //验证失败
+            return message('验证码不正确', false, "captcha");
         }
 
         // 用户名校验

@@ -12,5 +12,5 @@
 			<input name="sort" id="sort" value="{$info.sort|default=125}" lay-verify="required|number" autocomplete="off" placeholder="请输入序号" class="layui-input" type="text">
 		</div>
 	</div>
-	{:widget('common/submitBtn',array('submit|立即保存,close|关闭', 1))}
+	{widget:submit name="submit|立即保存,close|关闭"}
 </form>

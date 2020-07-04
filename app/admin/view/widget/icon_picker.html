@@ -1,4 +1,4 @@
-<input type="text" id="{$name}" name="{$name}" lay-filter="{$name}" value="{$value}" class="hide">
+<input type="text" id="{$iconName}" name="{$iconName}" lay-filter="{$iconName}" value="<?php echo $iconValue;?>" class="hide">
 <style type="text/css">
     .layui-iconpicker .layui-anim {
         display: none;
@@ -24,11 +24,11 @@
         /**
          * 选中图标 （常用于更新时默认选中图标）
          */
-        iconPicker.checkIcon('{$name}', '{$value}')
+        iconPicker.checkIcon('{$iconName}', '<?php echo $iconValue;?>')
 
         iconPicker.render({
             // 选择器，推荐使用input
-            elem: '#{$name}',
+            elem: '#{$iconName}',
             // 数据类型：fontClass/unicode，推荐使用fontClass
             type: 'fontClass',
             // 是否开启搜索：true/false，默认true

@@ -1,7 +1,7 @@
 /**
  * 字典类型
- * @auth 牧羊人
- * @date 2018/5/9
+ * @author 牧羊人
+ * @since 2020/7/4
  */
 layui.use(['function'], function () {
 

@@ -24,10 +24,24 @@ return [
     'layout_item'        => '{__CONTENT__}',
     // 视图输出字符串内容替换
     'tpl_replace_string' => [
-        '__STATIC__'    => '/static',
-        '__ADMIN__'     => '/static/admin',
-        '__JS__'        => '/static/admin/js',
-        '__CSS__'       => '/static/admin/css',
-        '__IMAGES__'    => '/static/admin/images',
+        '__STATIC__'     => '/static',
+        '__ADMIN__'      => '/static/admin',
+        '__JS__'         => '/static/admin/js',
+        '__CSS__'        => '/static/admin/css',
+        '__IMAGES__'     => '/static/admin/images',
     ],
+    'taglib_build_in'    => 'cx',
+    // 预先加载的标签库
+    'taglib_pre_load'    => implode(',', [
+        \app\admin\widget\Widget::class,
+        \app\admin\widget\Common::class,
+        \app\admin\widget\Upload::class,
+        \app\admin\widget\Item::class,
+        \app\admin\widget\Editor::class,
+        \app\admin\widget\Layout::class,
+        \app\admin\widget\Icon::class,
+        \app\admin\widget\Checkbox::class,
+        \app\admin\widget\City::class,
+        \app\admin\widget\Date::class,
+    ]),
 ];

@@ -13,6 +13,7 @@ namespace app\common\controller;
 
 
 use app\BaseController;
+use think\facade\View;
 
 /**
  * 基类控制器
@@ -32,8 +33,6 @@ class CommonBase extends BaseController
 
         // 初始化请求配置
         $this->initRequestConfig();
-
-
     }
 
     /**
@@ -73,6 +72,17 @@ class CommonBase extends BaseController
 
         // 定义是否为cgi
         defined('IS_CGI') or define('IS_CGI', $this->request->isCgi());
+
+        // 控制器名称
+        $controller_name = $this->request->controller();
+        // 操作方法名称
+        $action_name = $this->request->action();
+        // 定义控制器名
+        defined('CONTROLLER_NAME') or define('CONTROLLER_NAME', $controller_name);
+        // 定义操作方法名
+        defined('ACTION_NAME') or define('ACTION_NAME', $action_name);
+        View::assign("app", strtolower($controller_name));
+        View::assign("act", strtolower($action_name));
     }
 
     /**

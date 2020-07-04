@@ -1,7 +1,7 @@
 /**
- * 广告
- * @auth 牧羊人
- * @date 2019/5/7
+ * 广告管理
+ * @author 牧羊人
+ * @since 2020/7/4
  */
 layui.use(['form', 'function'], function () {
     var form = layui.form,

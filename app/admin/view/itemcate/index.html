@@ -16,11 +16,11 @@
 			</div>
             <div class="layui-inline">
                 <div class="layui-input-inline" style="width: auto;">
-					{:widget('func/btnQuery',array('查询'))}
-					{:widget('func/btnAdd',array('添加栏目'))}
-					{:widget('func/btnDAll',array('批量删除'))}
-					{:widget('func/btnExpand',array('全部展开'))}
-					{:widget('func/btnCollapse',array('全部折叠'))}
+					{widget:query name="查询"}
+					{widget:add name="添加栏目"}
+					{widget:dall name="批量删除"}
+					{widget:expand name="全部展开"}
+					{widget:collapse name="全部折叠"}
                </div>
            </div>
        </div>
@@ -28,12 +28,12 @@
 
 	<!-- TREE渲染区 -->
 	<table id="tableList" class="layui-hide" lay-filter="tableList"></table>
-	
+
 	<!-- 操作功能区二 -->
 	<script type="text/html" id="toolBar">
-		{:widget('func/btnEdit',array('编辑'))}
-		{:widget('func/btnDel',array('删除'))}
-		{:widget('func/btnAdd2',array('添加'))}
+		{widget:edit name="编辑"}
+		{widget:delete name="删除"}
+		{widget:addz name="添加"}
 	</script>
 
 {/block}

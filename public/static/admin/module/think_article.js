@@ -1,7 +1,7 @@
 /**
  * 文章管理
- * @auth 牧羊人
- * @date 2019/5/8
+ * @author 牧羊人
+ * @since 2020/7/4
  */
 layui.use(['form', 'function'], function () {
     var func = layui.function,

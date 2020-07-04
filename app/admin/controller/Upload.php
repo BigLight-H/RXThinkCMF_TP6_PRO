@@ -42,10 +42,10 @@ class Upload extends Backend
         $list = [];
         if (is_array($result)) {
             foreach ($result as $val) {
-                $list[] = IMAGE_URL . $val;
+                $list[] = IMG_URL . $val;
             }
         } else {
-            $list = IMAGE_URL . $result;
+            $list = IMG_URL . $result;
         }
         return message("上传成功", true, $list);
     }
@@ -69,10 +69,10 @@ class Upload extends Backend
         $list = [];
         if (is_array($result)) {
             foreach ($result as $val) {
-                $list[] = IMAGE_URL . $val;
+                $list[] = IMG_URL . $val;
             }
         } else {
-            $list = IMAGE_URL . $result;
+            $list = IMG_URL . $result;
         }
         return message("上传成功", true, $list);
     }

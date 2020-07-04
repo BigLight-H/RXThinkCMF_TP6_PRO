@@ -11,9 +11,9 @@
 }
 </style>
 <div class="layui-tab">
-	{if $config_group_list}
+	{if $configGroupList}
 	<ul class="layui-tab-title">
-		{foreach name="$config_group_list" item="val"}
+		{foreach name="$configGroupList" item="val"}
 		<li {if $val.id eq $group_id}class="layui-this"{/if}><a href="{:url('index', ['group_id'=>$val.id])}">{$val.name}</a></li>
 		{/foreach}
 	</ul>
@@ -31,9 +31,9 @@
 				<input name="group_id" id="group_id" type="hidden" value="{$group_id}">
 				<div class="layui-inline">
 					<div class="layui-input-inline" style="width: auto;">
-						{:widget('func/btnQuery',array('查询'))}
-						{:widget('func/btnAdd',array('添加配置',['group_id='.$group_id]))}
-						{:widget('func/btnDAll',array('批量删除'))}
+						{widget:query name="查询"}
+						{widget:add name="添加配置" param="['group_id='.$group_id]"}
+						{widget:dall name="批量删除"}
 					</div>
 				</div>
 			</div>
@@ -44,8 +44,8 @@
 		
 		<!-- 操作功能区二 -->
 		<script type="text/html" id="toolBar">
-	  	{:widget('func/btnEdit',array('编辑'))}
-		{:widget('func/btnDel',array('删除'))}
+			{widget:edit name="编辑"}
+			{widget:delete name="删除"}
 		</script>
 	</div>
 </div>

@@ -1,9 +1,11 @@
-{if $city_list neq null}
-	{volist name="city_list" id="vo"}
-	<div class="layui-input-inline">
+{if $cityList neq null}
+	{volist name="cityList" id="vo"}
+	<div class="layui-input-inline" style="width:165px;">
 		<select name="{$vo.code}_id" id="{$vo.code}_id" lay-filter="{$vo.code}_id" lay-search="">
 			<option value="">【请选择{$vo.tname}】</option>
-			{$vo['list']|make_option=$vo['selected'],'name','id'}
+			{volist name="vo['list']" id="val"}
+			<option value="{$val.id}" {if $val.id==$vo['selected']}selected=""{/if}>{$val.name}</option>
+			{/volist}
 		</select>
 	</div>
 	{/volist}
@@ -23,7 +25,7 @@ layui.use(['form'],function(){
 		var select = data.othis;
 		if (select[0]) {
 			if (id > 0) {
-				$.post("/City/getChilds", { 'id':id }, function(data){
+				$.post("/city/getChilds", { 'id':id }, function(data){
 					if (data.success) {
 						var str = "";
 						$.each(data.data, function(i,item){
@@ -56,7 +58,7 @@ layui.use(['form'],function(){
 		var select = data.othis;
 		if (select[0]) {
 			if (id > 0) {
-				$.post("/City/getChilds", { 'id':id }, function(data){
+				$.post("/city/getChilds", { 'id':id }, function(data){
 					if (data.success) {
 						var str = "";
 						$.each(data.data, function(i,item){

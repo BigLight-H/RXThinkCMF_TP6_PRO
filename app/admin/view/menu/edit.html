@@ -4,27 +4,13 @@
 		<div class="layui-inline">
 			<label class="layui-form-label">菜单名称：</label>
 			<div class="layui-input-inline">
-				<input name="name" id="name" value="{$info.name|default=''}" lay-verify="required" autocomplete="off" placeholder="请输入菜单名称" class="layui-input" type="text">
+				<input name="name" value="{$info.name|default=''}" lay-verify="required" autocomplete="off" placeholder="请输入菜单名称" class="layui-input" type="text">
 			</div>
 		</div>
 		<div class="layui-inline">
 			<label class="layui-form-label">菜单图标：</label>
 			<div class="layui-input-inline">
-				{:widget('iconPicker/iconPicker',array('icon',isset($info['icon']) ? $info['icon'] : 'layui-icon-component'))}
-			</div>
-		</div>
-	</div>
-	<div class="layui-form-item">
-		<div class="layui-inline">
-			<label class="layui-form-label">菜单类型：</label>
-			<div class="layui-input-inline">
-				{:widget('common/singleSelect',array('type|1|菜单类型|name|id',config('config.menu_type'),isset($info['type']) ? $info['type'] : 0))}
-			</div>
-		</div>
-		<div class="layui-inline">
-			<label class="layui-form-label">上级菜单：</label>
-			<div class="layui-input-inline">
-				{:widget('common/singleSelect',array('pid|0|上级菜单|name|id',$menu_list,isset($info['pid']) ? $info['pid'] : 0))}
+				{icon:picker name="icon" value="isset($info['icon']) ? $info['icon'] : 'layui-icon-component'"}
 			</div>
 		</div>
 	</div>
@@ -32,27 +18,47 @@
 		<div class="layui-inline">
 			<label class="layui-form-label">URL地址：</label>
 			<div class="layui-input-inline">
-				<input name="url" id="url" value="{$info.url|default=''}" autocomplete="off" placeholder="请输入URL地址" class="layui-input" type="text">
+				<input name="url" value="{$info.url|default=''}" autocomplete="off" placeholder="请输入URL地址" class="layui-input" type="text">
 			</div>
 		</div>
 		<div class="layui-inline">
 			<label class="layui-form-label">参数：</label>
 			<div class="layui-input-inline">
-				<input name="param" id="param" value="{$info.param|default=''}" autocomplete="off" placeholder="请输入参数" class="layui-input" type="text">
+				<input name="param" value="{$info.param|default=''}" autocomplete="off" placeholder="请输入参数" class="layui-input" type="text">
 			</div>
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<div class="layui-inline">
+			<label class="layui-form-label">菜单类型：</label>
+			<div class="layui-input-inline">
+				{common:select param="type|1|菜单类型|name|id" data="$typeList" value="isset($info['type']) ? $info['type'] : 0"}
+			</div>
+		</div>
+		<div class="layui-inline">
+			<label class="layui-form-label">上级菜单：</label>
+			<div class="layui-input-inline">
+				{common:select param="pid|1|上级菜单|name|id" data="$menuList" value="isset($info['pid']) ? $info['pid'] : 0"}
+			</div>
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">权限节点：</label>
+		<div class="layui-input-block">
+			{checkbox:select param="func|name|id" data="$funcList" value="''"}
 		</div>
 	</div>
 	<div class="layui-form-item">
 		<div class="layui-inline">
 			<label class="layui-form-label">权限标识：</label>
 			<div class="layui-input-inline">
-				<input name="auth" id="auth" value="{$info.auth|default=''}" autocomplete="off" placeholder="请输入权限标识" class="layui-input" type="text">
+				<input name="permission" value="{$info.permission|default=''}" autocomplete="off" placeholder="请输入权限标识" class="layui-input" type="text">
 			</div>
 		</div>
 		<div class="layui-inline">
 			<label class="layui-form-label">序号：</label>
 			<div class="layui-input-inline">
-				<input name="sort" id="sort" value="{$info.sort|default=125}" lay-verify="required|number" autocomplete="off" placeholder="请输入序号" class="layui-input" type="text">
+				<input name="sort" value="{$info.sort|default=125}" lay-verify="required|number" autocomplete="off" placeholder="请输入序号" class="layui-input" type="text">
 			</div>
 		</div>
 	</div>
@@ -60,15 +66,21 @@
 		<div class="layui-inline">
 			<label class="layui-form-label">是否显示：</label>
 			<div class="layui-input-inline">
-				{:widget('common/switchCheck',array('is_show','是|否',isset($info['is_show']) ? $info['is_show'] : 1))}
+				{common:switch name="status" title="显示|隐藏" value="isset($info['status']) ? $info['status'] : 1"}
 			</div>
 		</div>
 		<div class="layui-inline">
 			<label class="layui-form-label">公共菜单：</label>
 			<div class="layui-input-inline">
-				{:widget('common/switchCheck',array('is_public','是|否',isset($info['is_public']) ? $info['is_public'] : 2))}
+				{common:switch name="is_public" title="是|否" value="isset($info['is_public']) ? $info['is_public'] : 2"}
 			</div>
 		</div>
 	</div>
-	{:widget('common/submitBtn',array('submit|立即保存,close|关闭', 1))}
+	<div class="layui-form-item layui-form-text">
+		<label class="layui-form-label">备注：</label>
+		<div class="layui-input-block">
+			<textarea name="note" placeholder="请输入备注" class="layui-textarea">{$info.note|default=''}</textarea>
+		</div>
+	</div>
+	{widget:submit name="submit|立即保存,close|关闭"}
 </form>

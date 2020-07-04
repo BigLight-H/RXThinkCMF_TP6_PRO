@@ -1,7 +1,7 @@
 /**
- * 字典
- * @auth 牧羊人
- * @date 2018/5/9
+ * 字典管理
+ * @author 牧羊人
+ * @since 2020/7/4
  */
 layui.use(['function'], function () {
 
@@ -14,11 +14,16 @@ layui.use(['function'], function () {
         var cols = [
             {type: 'checkbox', fixed: 'left'}
             , {field: 'id', width: 80, title: 'ID', align: 'center', sort: true, fixed: 'left'}
-            , {field: 'title', width: 300, title: '字典名称', align: 'center'}
-            , {field: 'format_create_user', width: 100, title: '创建人', align: 'center'}
-            , {field: 'format_create_time', width: 180, title: '创建时间', align: 'center', sort: true}
-            , {field: 'format_update_time', width: 180, title: '更新时间', align: 'center', sort: true}
-            , {field: 'sort', width: 100, title: '排序', align: 'center', sort: true}
+            , {field: 'title', width: 200, title: '字典名称', align: 'center'}
+            , {field: 'tag', width: 200, title: '内部标签', align: 'center'}
+            , {field: 'value', width: 250, title: '字典值', align: 'center'}
+            , {field: 'typeName', width: 100, title: '字典类型', align: 'center'}
+            , {field: 'status', width: 100, title: '状态', align: 'center', templet: '#statusTpl'}
+            , {field: 'note', width: 200, title: '备注', align: 'center'}
+            , {field: 'sort', width: 100, title: '显示顺序', align: 'center'}
+            , {field: 'create_user_name', width: 100, title: '创建人', align: 'center'}
+            , {field: 'create_time', width: 180, title: '创建时间', align: 'center', sort: true}
+            , {field: 'update_time', width: 180, title: '更新时间', align: 'center', sort: true}
             , {fixed: 'right', width: 150, title: '功能操作', align: 'center', toolbar: '#toolBar'}
         ];
 
@@ -26,7 +31,12 @@ layui.use(['function'], function () {
         func.tableIns(cols, "tableList");
 
         //【设置弹框】
-        func.setWin("字典", 500, 300);
+        func.setWin("字典", 750, 550);
+
+        //【设置人员状态】
+        func.formSwitch('status', null, function (data, res) {
+            console.log("开关回调成功");
+        });
     }
 });
 

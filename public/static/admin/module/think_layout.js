@@ -1,7 +1,7 @@
 /**
  * 布局管理
- * @auth 牧羊人
- * @date 2019/5/6
+ * @author 牧羊人
+ * @since 2020/7/4
  */
 layui.use(['form', 'function'], function () {
     var form = layui.form,
@@ -13,19 +13,18 @@ layui.use(['form', 'function'], function () {
         var cols = [
             {type: 'checkbox', fixed: 'left'}
             , {field: 'id', width: 80, title: 'ID', align: 'center', sort: true, fixed: 'left'}
+            , {field: 'loc_name', width: 250, title: '推荐位置编号', align: 'center'}
             , {
                 field: 'image_url', width: 60, title: '封面', align: 'center', templet: function (d) {
                     return '<a href="' + d.image_url + '" target="_blank"><img src="' + d.image_url + '" height="26" /></a>';
                 }
             }
-            , {field: 'page_name', width: 150, title: '页面编号', align: 'center'}
-            , {field: 'loc_name', width: 250, title: '页面位置编号', align: 'center'}
-            , {field: 'type_name', width: 100, title: '类型', align: 'center'}
-            , {field: 'type_desc', width: 350, title: '类型名称', align: 'center'}
-            , {field: 'format_create_user', width: 100, title: '创建人', align: 'center'}
-            , {field: 'format_create_time', width: 180, title: '创建时间', align: 'center', sort: true}
-            , {field: 'format_update_time', width: 180, title: '更新时间', align: 'center', sort: true}
+            , {field: 'type_name', width: 100, title: '推荐类型', align: 'center'}
+            , {field: 'content', width: 350, title: '推荐内容', align: 'center'}
+            , {field: 'item_name', width: 100, title: '所属站点', align: 'center'}
             , {field: 'sort', width: 100, title: '排序', align: 'center'}
+            , {field: 'create_time', width: 180, title: '创建时间', align: 'center', sort: true}
+            , {field: 'update_time', width: 180, title: '更新时间', align: 'center', sort: true}
             , {fixed: 'right', width: 150, title: '功能操作', align: 'center', toolbar: '#toolBar'}
         ];
 

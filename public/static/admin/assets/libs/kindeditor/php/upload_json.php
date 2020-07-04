@@ -9,7 +9,7 @@
 
 require_once './JSON.php';
 define ('ROOT_PATH', str_replace('\\', '/', dirname(dirname(dirname(dirname(dirname(dirname(__FILE__))))))));
-$php_path = ROOT_PATH . '/uploads/img/';
+$php_path = ROOT_PATH . '/uploads/images/';
 $php_url = 'http://'.str_replace('manage', 'images', $_SERVER['SERVER_NAME']).'/';
 
 //文件保存目录路径

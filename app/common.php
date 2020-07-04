@@ -697,6 +697,22 @@ if (!function_exists('get_device_type')) {
 
 }
 
+if (!function_exists('get_password')) {
+
+    /**
+     * 获取双MD5加密密码
+     * @param string $password 加密字符串
+     * @return string 返回结果
+     * @author 牧羊人
+     * @date 2019/4/5
+     */
+    function get_password($password)
+    {
+        return md5(md5($password));
+    }
+
+}
+
 if (!function_exists('get_image_url')) {
 
     /**
@@ -975,31 +991,31 @@ if (!function_exists('mbsubstr')) {
     }
 }
 
-if (!function_exists('message')) {
-
-    /**
-     * 消息数组
-     * @param string $message 提示文字
-     * @param bool $success 是否成功true或false
-     * @param array $data 结果数据
-     * @param int $code 编码
-     * @return array 返回结果
-     * @author 牧羊人
-     * @date 2020-04-21
-     */
-    function message($message = "系统繁忙，请稍候再试", $success = false, $data = [], $code = 0)
-    {
-        $result = ['message' => $message, 'data' => $data];
-        if ($success) {
-            // 成功统一返回200
-            $result['code'] = 200;
-        } else {
-            // 失败状态(可配置常用状态码)
-            $result['code'] = $code ? $code : -1;
-        }
-        return $result;
-    }
-}
+//if (!function_exists('message')) {
+//
+//    /**
+//     * 消息数组
+//     * @param string $msg 提示文字
+//     * @param bool $success 是否成功true或false
+//     * @param array $data 结果数据
+//     * @param int $code 编码
+//     * @return array 返回结果
+//     * @author 牧羊人
+//     * @date 2020-04-21
+//     */
+//    function message($msg = "系统繁忙，请稍候再试", $success = true, $data = [], $code = 0)
+//    {
+//        $result = ['msg' => $msg, 'data' => $data, 'success' => $success];
+//        if ($success) {
+//            // 成功统一返回0
+//            $result['code'] = 0;
+//        } else {
+//            // 失败状态(可配置常用状态码)
+//            $result['code'] = $code ? $code : -1;
+//        }
+//        return $result;
+//    }
+//}
 
 if (!function_exists('format_num')) {
 
@@ -1209,12 +1225,12 @@ if (!function_exists('save_image')) {
                 return str_replace(IMG_URL, "", $img_url);
             }
             $new_path = create_image_path($save_dir, $imgExt);
-            $old_path = str_replace(IMG_URL, IMG_PATH, $img_url);
+            $old_path = str_replace(IMG_URL, ATTACHMENT_PATH, $img_url);
             if (!file_exists($old_path)) {
                 return false;
             }
             rename($old_path, IMG_PATH . $new_path);
-            return $new_path;
+            return str_replace(ATTACHMENT_PATH, "", IMG_PATH) . $new_path;
         } else {
             // 保存远程图片
             $new_path = save_remote_image($img_url, $save_dir);
@@ -1305,7 +1321,8 @@ if (!function_exists('save_image_content')) {
             foreach ($match[1] as $id => $val) {
                 $save_image = save_image($val, $path);
                 if ($save_image) {
-                    $content = str_replace($val, "[IMG_URL]" . $save_image, $content);
+
+                    $content = str_replace($val, "[IMG_URL]" . str_replace(ATTACHMENT_PATH, "", IMG_PATH) . $save_image, $content);
                 }
             }
         }
@@ -1315,7 +1332,7 @@ if (!function_exists('save_image_content')) {
             foreach ($match2[1] as $vo) {
                 $save_video = save_image($vo, $path);
                 if ($save_video) {
-                    $content = str_replace($vo, "[IMG_URL]" . $save_video, $content);
+                    $content = str_replace($vo, "[IMG_URL]" . str_replace(ATTACHMENT_PATH, "", IMG_PATH) . $save_video, $content);
                 }
             }
         }

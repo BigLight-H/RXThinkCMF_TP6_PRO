@@ -1,7 +1,7 @@
 /**
- * 城市管理
- * @auth 牧羊人
- * @date 2019/5/7
+ * 行政区域
+ * @author 牧羊人
+ * @since 2020/7/4
  */
 layui.use(['function'], function () {
 
@@ -20,11 +20,8 @@ layui.use(['function'], function () {
                     return '<span class="layui-btn layui-btn-xs layui-badge layui-bg-cyan">' + d.level + '</span>';
                 }
             }
-            , {
-                field: 'is_public', width: 100, title: '是否开放', align: 'center', templet: function (d) {
-                    return d.is_public == 1 ? "是" : "否";
-                }
-            }
+            , {field: 'citycode', width: 200, title: '城市编码(区号)', align: 'center'}
+            , {field: 'citycode', width: 200, title: '城市编码(区号)', align: 'center'}
             , {field: 'sort', width: 100, title: '排序', align: 'center'}
             , {fixed: 'right', width: 230, title: '功能操作', align: 'left', toolbar: '#toolBar'}
         ];
