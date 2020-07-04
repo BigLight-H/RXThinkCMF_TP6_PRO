@@ -74,6 +74,9 @@ RXThinkCMF_TP6_PRO旗舰版 基于 ThinkPHP6 +Layui2.5.6 开发权限(RBAC)及�
 
 - RXThinkCMF_TP6_PRO版本：[http://manage.pro6.rxthink.cn/](http://manage.pro6.rxthink.cn/)
 
+## 正版授权
+
+[正版授权通道：1175401194](http://wpa.qq.com/msgrd?v=3&amp;uin=1175401194&amp;site=qq&amp;menu=yes)
 
 ## 技术支持
 
