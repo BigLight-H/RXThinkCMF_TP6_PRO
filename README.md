@@ -132,7 +132,7 @@ RXThinkCMF_TP6_PRO旗舰版 基于 ThinkPHP6 +Layui2.5.6 开发权限(RBAC)及�
 
 ## 部署说明
 
-[点击查看技术文档](http://docs.pro5.1.rxthink.cn/)
+[点击查看技术文档](http://docs.pro6.rxthink.cn/)
 
 ## 更新说明
 
