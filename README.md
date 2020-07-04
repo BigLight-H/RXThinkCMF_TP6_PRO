@@ -76,7 +76,7 @@ RXThinkCMF_TP6_PRO旗舰版 基于 ThinkPHP6 +Layui2.5.6 开发权限(RBAC)及�
 
 ## 正版授权
 
-[正版授权通道：1175401194](http://wpa.qq.com/msgrd?v=3&amp;uin=1175401194&amp;site=qq&amp;menu=yes)
+[正版授权通道：授权是为了产品更好的发展，提供更好的服务和技术支持](http://wpa.qq.com/msgrd?v=3&amp;uin=1175401194&amp;site=qq&amp;menu=yes)
 
 ## 技术支持
 
