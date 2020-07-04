@@ -70,7 +70,7 @@ RXThinkCMF_TP6_PRO旗舰版 基于 ThinkPHP6 +Layui2.5.6 开发权限(RBAC)及�
 | RXThinkCMF_TP6专业版 | 最新开源版本，master分支 | https://gitee.com/ruoxi520_admin/RXThinkCMF_TP6 |
 
 
-## 后台演示（用户名:admin 密码:admin123）
+## 后台演示（用户名:admin 密码:123456）
 
 - RXThinkCMF_TP6_PRO版本：[http://manage.pro6.rxthink.cn/](http://manage.pro6.rxthink.cn/)
 
