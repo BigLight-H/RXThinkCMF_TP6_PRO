@@ -39,22 +39,6 @@ class Backend extends CommonBase
     // 网络请求
     protected $param;
 
-//    /**
-//     * 初始化
-//     * @author 牧羊人
-//     * @since 2020/7/5
-//     */
-//    public function __construct(App $app)
-//    {
-//        parent::__construct($app);
-//
-//        // 初始化配置
-//        $this->initConfig();
-//
-//        // 登录验证
-//        $this->checkLogin();
-//    }
-
     /**
      * 初始化
      */
