@@ -15,7 +15,7 @@ use think\facade\View;
  * Class Itemcate
  * @package app\admin\controller
  */
-class ItemCate extends Backend
+class Itemcate extends Backend
 {
     /**
      * 初始化

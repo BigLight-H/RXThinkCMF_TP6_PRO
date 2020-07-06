@@ -102,12 +102,6 @@ layui.use(['function', 'laydate', 'admin', 'zTree'], function () {
         func.formSwitch('status', null, function (data, res) {
             console.log("开关回调成功");
         });
-    } else {
-        //入职日期
-        func.initDate(['entry_date|date'], function (value, date) {
-            console.log("当前选择日期:" + value);
-            console.log("日期详细信息：" + JSON.stringify(date));
-        });
     }
 });
 

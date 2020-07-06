@@ -71,7 +71,7 @@ class Login extends Backend
         // 清空SESSION
         session('adminId', null);
         // 跳转登录页
-        return redirect("/login/index");
+        return redirect(url('/login/index'));
     }
 
 }

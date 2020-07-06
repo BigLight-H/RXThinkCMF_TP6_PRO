@@ -14,7 +14,7 @@ use app\common\controller\Backend;
  * Class Userlevel
  * @package app\admin\controller
  */
-class UserLevel extends Backend
+class Userlevel extends Backend
 {
     /**
      * 初始化

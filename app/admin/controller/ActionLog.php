@@ -14,7 +14,7 @@ use app\common\controller\Backend;
  * Class Actionlog
  * @package app\admin\controller
  */
-class ActionLog extends Backend
+class Actionlog extends Backend
 {
     /**
      * 初始化

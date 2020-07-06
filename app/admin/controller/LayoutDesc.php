@@ -15,7 +15,7 @@ use think\facade\View;
  * Class Layoutdesc
  * @package app\admin\controller
  */
-class LayoutDesc extends Backend
+class Layoutdesc extends Backend
 {
     /**
      * 初始化

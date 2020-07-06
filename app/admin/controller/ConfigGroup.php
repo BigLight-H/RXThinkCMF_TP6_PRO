@@ -14,7 +14,7 @@ use app\common\controller\Backend;
  * Class Configgroup
  * @package app\admin\controller
  */
-class ConfigGroup extends Backend
+class Configgroup extends Backend
 {
     /**
      * 初始化

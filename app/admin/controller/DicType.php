@@ -14,7 +14,7 @@ use app\common\controller\Backend;
  * Class Dictype
  * @package app\admin\controller
  */
-class DicType extends Backend
+class Dictype extends Backend
 {
     /**
      * 初始化

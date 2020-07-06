@@ -15,7 +15,7 @@ use think\facade\View;
  * Class Configweb
  * @package app\admin\controller
  */
-class ConfigWeb extends Backend
+class Configweb extends Backend
 {
     /**
      * 初始化

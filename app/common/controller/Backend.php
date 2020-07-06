@@ -12,6 +12,8 @@
 namespace app\common\controller;
 
 use app\common\model\system\Admin;
+use think\App;
+use think\exception\HttpResponseException;
 use \think\facade\View;
 
 /**
@@ -36,6 +38,22 @@ class Backend extends CommonBase
     protected $permission;
     // 网络请求
     protected $param;
+
+//    /**
+//     * 初始化
+//     * @author 牧羊人
+//     * @since 2020/7/5
+//     */
+//    public function __construct(App $app)
+//    {
+//        parent::__construct($app);
+//
+//        // 初始化配置
+//        $this->initConfig();
+//
+//        // 登录验证
+//        $this->checkLogin();
+//    }
 
     /**
      * 初始化
@@ -84,11 +102,11 @@ class Backend extends CommonBase
      */
     public function checkLogin()
     {
-        $noLoginActs = ['login'];
-        if (session('adminId') == null && !in_array($this->request->controller(), $noLoginActs)) {
+        $noLoginActs = ['Login'];
+        if (!$this->isLogin() && !in_array($this->request->controller(), $noLoginActs)) {
             // 跳转登录页
-            return header('location:/login/index');
-            exit;
+            // 正确重定向方法，一定写url()
+            return $this->redirectTo(url('/login/index'));
         }
 
         // 登录用户ID
@@ -103,6 +121,30 @@ class Backend extends CommonBase
         View::assign("adminId", $this->adminId);
         View::assign("adminInfo", $this->adminInfo);
         $this->permission = $this->adminInfo['permission'];
+    }
+
+    /**
+     * 判断用户是否登录
+     * @return bool
+     */
+    public function isLogin()
+    {
+        // 用户未登录返回 false
+        if(empty(session('adminId'))){
+            return false;
+        }
+        // 用户已登录返回 true
+        return true;
+    }
+
+    /**
+     * 自定义重定向方法 重要的操作二
+     * @param $args
+     */
+    public function redirectTo(...$args)
+    {
+        // 此处 throw new HttpResponseException 这个异常一定要写
+        throw new HttpResponseException(redirect(...$args));
     }
 
     /**

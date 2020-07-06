@@ -154,7 +154,12 @@ class BaseService
         if (!$data['status']) {
             return message('记录状态不能为空', false);
         }
-        return $this->edit($data);
+        $error = '';
+        $rowId = $this->model->edit($data, $error);
+        if (!$rowId) {
+            return message($error, false);
+        }
+        return message();
     }
 
 }

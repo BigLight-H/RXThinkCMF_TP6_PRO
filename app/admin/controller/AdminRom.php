@@ -14,7 +14,7 @@ use app\common\controller\Backend;
  * Class Adminrom
  * @package app\admin\controller
  */
-class AdminRom extends Backend
+class Adminrom extends Backend
 {
     /**
      * 初始化
