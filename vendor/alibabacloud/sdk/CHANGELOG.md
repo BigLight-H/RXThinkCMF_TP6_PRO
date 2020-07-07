@@ -1,5 +1,83 @@
 # CHANGELOG
 
+## 1.8.366 - 2020-7-6
+- Sdk for 101.
+
+
+## 1.8.365 - 2020-7-3
+- Supported UpdateUserBucketConfig.
+
+
+## 1.8.364 - 2020-7-3
+- Add ListResourceExecutionStatus API.
+- ListExecutions API supports filtering by resource id.
+- TriggerExecution API supports TimerTrigger.
+
+
+## 1.8.363 - 2020-7-3
+- Supports tag management APIs.
+
+
+## 1.8.362 - 2020-7-2
+- Build sdk.
+
+
+## 1.8.361 - 2020-7-2
+- Generated 2020-05-18 for `dataworks-public`.
+
+
+## 1.8.360 - 2020-7-2
+- SDK version 102.
+
+
+## 1.8.359 - 2020-7-2
+- Add GetFootwearPosition.
+- Add PullTakeShoesEvent.
+- Add PullTryOnShoesEvent.
+
+
+## 1.8.358 - 2020-7-2
+- Update endpoint.
+
+
+## 1.8.357 - 2020-7-2
+- CreateShardingDBInstance add ProtocolType, to support DynamoDB.
+- DescribeDBInstances add return ResourceGroupId.
+
+
+## 1.8.356 - 2020-7-1
+- Added API for modifying non Alibaba Cloud host names.
+- Fix the required type adjustment of several parameters.
+
+
+## 1.8.355 - 2020-7-1
+- SDK version 109.
+
+
+## 1.8.354 - 2020-7-1
+- SDK version 109.
+
+
+## 1.8.353 - 2020-7-1
+- ImageProcess First Version.
+
+
+## 1.8.352 - 2020-7-1
+- Sdk version 111.
+
+
+## 1.8.351 - 2020-7-1
+- SDK version 108.
+
+
+## 1.8.350 - 2020-7-1
+- Add API for GetMetadataAmount.
+
+
+## 1.8.349 - 2020-7-1
+- Support Saf For ExecuteExtendService.
+
+
 ## 1.8.348 - 2020-6-30
 - Generated 2018-10-12 for `Airec`.
 
