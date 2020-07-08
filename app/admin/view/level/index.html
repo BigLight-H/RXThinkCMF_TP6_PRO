@@ -33,5 +33,10 @@
 		{widget:delete name="删除"}
 	</script>
 
+	<!-- 状态 -->
+	<script type="text/html" id="statusTpl">
+		<input type="checkbox" name="status" value="{literal}{{ d.id }}{/literal}" lay-skin="switch" lay-text="正常|禁用" lay-filter="status" {literal}{{ d.status == 1 ? 'checked' : '' }}{/literal} >
+	</script>
+
 {/block}
  

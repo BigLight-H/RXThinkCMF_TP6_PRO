@@ -19,7 +19,7 @@
 ### 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！
 ### 如果您想获悉项目实时更新信息，您可以点右上角 <a href='https://gitee.com/ruoxi520_admin/RXThinkCMF_TP6_PRO'><img src='https://gitee.com/ruoxi520_admin/RXThinkCMF_TP6_PRO/widgets/widget_3.svg' alt='Fork me on Gitee'></img></a> 感谢您的支持！
 ### 官方网址：http://www.rxthink.cn/
-### 帮助文档：http://docs.pro6.rxthink.cn/
+### 帮助文档：http://docs.v6.rxthink.cn/
 ### 本项目还在不断开发完善中,如有建议或问题请官方论坛反馈，论坛地址:http://www.rxthink.cn
 
 ## 项目介绍
@@ -59,7 +59,7 @@ RXThinkCMF_TP6_PRO旗舰版 基于 ThinkPHP6 +Layui2.5.6 开发权限(RBAC)及�
 * 作者[牧羊人]：南京RXThink研发工作室
 * 作者QQ：1175401194  
 * 官网网址：[http://www.rxthink.cn/](http://www.rxthink.cn/)  
-* 文档网址：[http://docs.pro6.rxthink.cn/](http://docs.pro6.rxthink.cn/)  
+* 文档网址：[http://docs.v6.rxthink.cn/](http://docs.v6.rxthink.cn/)  
 * 开源协议：Apache 2.0
 
 ### RXThinkCMF版本说明
@@ -132,7 +132,7 @@ RXThinkCMF_TP6_PRO旗舰版 基于 ThinkPHP6 +Layui2.5.6 开发权限(RBAC)及�
 
 ## 部署说明
 
-[点击查看技术文档](http://docs.pro6.rxthink.cn/)
+[点击查看技术文档](http://docs.v6.rxthink.cn/)
 
 ## 更新说明
 

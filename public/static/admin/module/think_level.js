@@ -14,23 +14,7 @@ layui.use(['function'], function () {
             {type: 'checkbox', fixed: 'left'}
             , {field: 'id', width: 80, title: 'ID', align: 'center', sort: true, fixed: 'left'}
             , {field: 'name', width: 300, title: '职级名称', align: 'center'}
-            , {
-                field: 'status',
-                width: 100,
-                title: '状态',
-                align: 'center',
-                templet: '#statusTpl',
-                sort: true,
-                templet: function (d) {
-                    var str = "";
-                    if (d.status == 1) {
-                        str = '<span class="layui-btn layui-btn-normal layui-btn-xs">在用</span>';
-                    } else {
-                        str = '<span class="layui-btn layui-btn-normal layui-btn-xs layui-btn-danger">停用</span>';
-                    }
-                    return str;
-                }
-            }
+            , {field: 'status', width: 100, title: '状态', align: 'center', templet: '#statusTpl'}
             , {field: 'sort', width: 80, title: '排序', align: 'center'}
             , {field: 'create_user_name', width: 100, title: '创建人', align: 'center'}
             , {field: 'create_time', width: 180, title: '创建时间', align: 'center', sort: true}
@@ -43,5 +27,10 @@ layui.use(['function'], function () {
 
         //【设置弹框】
         func.setWin("职级", 500, 300);
+
+        //【设置人员状态】
+        func.formSwitch('status', null, function (data, res) {
+            console.log("开关回调成功");
+        });
     }
 });
