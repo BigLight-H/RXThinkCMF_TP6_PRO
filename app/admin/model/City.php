@@ -57,7 +57,7 @@ class City extends BaseModel
         $result = $this->where([
             'pid' => $pid,
             'mark' => 1
-        ])->order("id asc")->select();
+        ])->order("id asc")->select()->toArray();
         if ($result) {
             foreach ($result as $val) {
                 $id = (int)$val['id'];
@@ -80,9 +80,9 @@ class City extends BaseModel
 
     /**
      * 获取城市名称
-     * @param $cityId
-     * @param string $delimiter
-     * @param bool $isReplace
+     * @param $cityId 城市ID
+     * @param string $delimiter 拼接字符串
+     * @param bool $isReplace 是否替换关键词
      * @return string
      * @throws \think\db\exception\DataNotFoundException
      * @throws \think\db\exception\ModelNotFoundException
@@ -93,13 +93,15 @@ class City extends BaseModel
     {
         do {
             $info = $this->getInfo($cityId);
-            if ($isReplace) {
-                $names[] = str_replace(array("省", "市", "维吾尔", "壮族", "回族", "自治区"), "", $info['name']);
-            } else {
-                $names[] = $info['name'];
+            if ($info) {
+                if ($isReplace) {
+                    $names[] = str_replace(array("省", "市", "维吾尔", "壮族", "回族", "自治区"), "", $info['name']);
+                } else {
+                    $names[] = $info['name'];
+                }
             }
-            $city_id = isset($info['pid']) ? (int)$info['pid'] : 0;
-        } while ($city_id > 1);
+            $cityId = isset($info['pid']) ? (int)$info['pid'] : 0;
+        } while ($cityId > 1);
         $names = array_reverse($names);
         if (strpos($names[1], $names[0]) === 0) {
             unset($names[0]);

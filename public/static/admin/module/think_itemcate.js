@@ -7,7 +7,6 @@ layui.use(['function'], function () {
 
     //【声明变量】
     var func = layui.function
-        ,form = layui.form
         , $ = layui.$;
 
     if (A == 'index') {
@@ -15,8 +14,7 @@ layui.use(['function'], function () {
         var cols = [
              {field: 'id', width: 80, title: 'ID', align: 'center'}
             , {field: 'name', width: 250, title: '栏目名称', align: 'left'}
-            , {
-                field: 'cover_url', width: 60, title: '图片', align: 'center', templet: function (d) {
+            , {field: 'cover_url', width: 60, title: '图片', align: 'center', templet: function (d) {
                     var coverStr = "";
                     if (d.cover_url) {
                         coverStr = '<a href="' + d.cover_url + '" target="_blank"><img src="' + d.cover_url + '" height="26" /></a>';

@@ -4,13 +4,13 @@
 		<div class="layui-inline">
 			<label class="layui-form-label">友链名称：</label>
 			<div class="layui-input-inline">
-				<input name="name" id="name" value="{$info.name|default=''}" lay-verify="required" autocomplete="off" placeholder="请输入友链名称" class="layui-input" type="text">
+				<input name="name" value="{$info.name|default=''}" lay-verify="required" autocomplete="off" placeholder="请输入友链名称" class="layui-input" type="text">
 			</div>
 		</div>
 		<div class="layui-inline">
 			<label class="layui-form-label">URL地址：</label>
 			<div class="layui-input-inline">
-				<input name="url" id="url" value="{$info.url|default=''}" lay-verify="required" autocomplete="off" placeholder="请输入友链URL地址" class="layui-input" type="text">
+				<input name="url" value="{$info.url|default=''}" lay-verify="required" autocomplete="off" placeholder="请输入友链URL地址" class="layui-input" type="text">
 			</div>
 		</div>
 	</div>
@@ -49,7 +49,7 @@
 	<div class="layui-form-item">
 		<label class="layui-form-label">序号：</label>
 		<div class="layui-input-inline">
-			<input name="sort" id="sort" value="{$info.sort|default=125}" lay-verify="required|number" autocomplete="off" placeholder="请输入序号" class="layui-input" type="text">
+			<input name="sort" value="{$info.sort|default=125}" lay-verify="required|number" autocomplete="off" placeholder="请输入序号" class="layui-input" type="text">
 		</div>
 	</div>
 	{widget:submit name="submit|立即保存,close|关闭"}

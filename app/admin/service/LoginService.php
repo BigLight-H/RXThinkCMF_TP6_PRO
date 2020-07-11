@@ -33,10 +33,13 @@ class LoginService extends BaseService
     }
 
     /**
-     * 登录系统
+     * 系统登录
      * @return array
-     * @since 2020/6/29
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\DbException
+     * @throws \think\db\exception\ModelNotFoundException
      * @author 牧羊人
+     * @since 2020/7/11
      */
     public function login()
     {
@@ -57,22 +60,16 @@ class LoginService extends BaseService
         // 验证码
         $captcha = trim($param['captcha']);
         if (!$captcha) {
-            return message("", false);
-        }
-        // 验证码
-        $captcha = trim($param['captcha']);
-        if (!$captcha) {
             return message('验证码不能为空', false, "captcha");
         } elseif (!captcha_check($captcha) && $captcha != 520) {
             //验证失败
             return message('验证码不正确', false, "captcha");
         }
 
-        // 用户名校验
-        $info = $this->model->where([
-            'username' => $username,
-            'mark' => 1,
-        ])->find();
+        // 用户验证
+        $info = $this->model->getOne([
+            ['username', '=', $username],
+        ]);
         if (!$info) {
             return message('您的登录用户名不存在', false, 'username');
         }
@@ -85,7 +82,7 @@ class LoginService extends BaseService
 
         // 使用状态校验
         if ($info['status'] != 1) {
-            return message("您的帐号已被禁言，请联系管理员", false);
+            return message("您的帐号已被禁用", false);
         }
 
 //        // 设置日志标题

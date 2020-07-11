@@ -45,7 +45,7 @@ class Action extends BaseModel
             }
             // 执行类型
             if ($info['execution']) {
-                $info['execution_name'] = config("admin.execution")[$info['execution']];
+                $info['execution_name'] = config("admin.action_execution")[$info['execution']];
             }
         }
         return $info;

@@ -22,8 +22,7 @@ layui.use(['function'], function () {
             , {field: 'rule', width: 200, title: '行为规则', align: 'center'}
             , {field: 'log', width: 200, title: '日志规则', align: 'center'}
             , {field: 'description', width: 300, title: '行为描述', align: 'center'}
-            , {
-                field: 'status', width: 100, title: '状态', align: 'center', templet: function (d) {
+            , {field: 'status', width: 100, title: '状态', align: 'center', templet: function (d) {
                     var str = "";
                     if (d.status == 1) {
                         str = '<span class="layui-btn layui-btn-normal layui-btn-xs">在用</span>';

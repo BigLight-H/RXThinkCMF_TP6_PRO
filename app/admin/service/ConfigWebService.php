@@ -36,7 +36,7 @@ class ConfigWebService extends BaseService
     }
 
     /**
-     * 网站配置管理
+     * 配置表单信息
      * @return array
      * @throws \think\db\exception\BindParamException
      * @throws \think\db\exception\DataNotFoundException

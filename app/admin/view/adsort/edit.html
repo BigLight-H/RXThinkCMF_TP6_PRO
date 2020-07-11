@@ -3,7 +3,7 @@
 	<div class="layui-form-item">
 		<label class="layui-form-label">广告位：</label>
 		<div class="layui-input-block">
-			<input name="name" id="name" value="{$info.name|default=''}" lay-verify="required" autocomplete="off" placeholder="请输入广告位名称" class="layui-input" type="text">
+			<input name="name" value="{$info.name|default=''}" lay-verify="required" autocomplete="off" placeholder="请输入广告位名称" class="layui-input" type="text">
 		</div>
 	</div>
 	<div class="layui-form-item">
@@ -14,7 +14,7 @@
 		<div class="layui-inline">
 			<label class="layui-form-label">广告位置：</label>
 			<div class="layui-input-inline">
-				<input name="loc_id" id="loc_id" value="{$info.loc_id|default=0}" lay-verify="required" autocomplete="off" placeholder="请输入广告位置" class="layui-input" type="text">
+				<input name="loc_id" value="{$info.loc_id|default=0}" lay-verify="required" autocomplete="off" placeholder="请输入广告位置" class="layui-input" type="text">
 			</div>
 		</div>
 		<div class="layui-inline">
@@ -27,13 +27,13 @@
 	<div class="layui-form-item layui-form-text">
 		<label class="layui-form-label">描述：</label>
 		<div class="layui-input-block">
-			<textarea name="description" id="description" placeholder="请输入广告位描述" class="layui-textarea">{$info.description|default=''}</textarea>
+			<textarea name="description" placeholder="请输入广告位描述" class="layui-textarea">{$info.description|default=''}</textarea>
 		</div>
 	</div>
 	<div class="layui-form-item">
 		<label class="layui-form-label">序号：</label>
 		<div class="layui-input-inline">
-			<input name="sort" id="sort" value="{$info.sort|default=125}" lay-verify="required|number" autocomplete="off" placeholder="请输入序号" class="layui-input" type="text">
+			<input name="sort" value="{$info.sort|default=125}" lay-verify="required|number" autocomplete="off" placeholder="请输入序号" class="layui-input" type="text">
 		</div>
 	</div>
 	{widget:submit name="submit|立即保存,close|关闭"}

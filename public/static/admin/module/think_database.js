@@ -21,8 +21,7 @@ layui.use(['function'], function () {
             , {field: 'data_length', width: 100, title: '大小', align: 'center'}
             , {field: 'auto_increment', width: 100, title: '自增索引', align: 'center'}
             , {field: 'comment', width: 250, title: '表备注', align: 'center'}
-            , {
-                field: '', width: 100, title: '状态', align: 'center', templet: function (d) {
+            , {field: '', width: 100, title: '状态', align: 'center', templet: function (d) {
                     return '未备份';
                 }
             }

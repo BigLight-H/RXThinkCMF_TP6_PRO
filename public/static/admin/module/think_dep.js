@@ -15,7 +15,6 @@ layui.use(['function'], function () {
              {field: 'id', width: 80, title: 'ID', align: 'center'}
             , {field: 'name', width: 300, title: '部门名称', align: 'left'}
             , {field: 'type', width: 100, title: '类型', align: 'center', templet(d) {
-                var cls = "";
                 if (d.type == 1) {
                     // 公司
                     return '<span class="layui-btn layui-btn-normal layui-btn-xs">公司</span>';

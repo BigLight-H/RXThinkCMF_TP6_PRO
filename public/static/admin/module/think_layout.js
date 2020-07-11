@@ -13,9 +13,9 @@ layui.use(['form', 'function'], function () {
         var cols = [
             {type: 'checkbox', fixed: 'left'}
             , {field: 'id', width: 80, title: 'ID', align: 'center', sort: true, fixed: 'left'}
+            , {field: 'title', width: 200, title: '布局标题', align: 'center'}
             , {field: 'loc_name', width: 250, title: '推荐位置编号', align: 'center'}
-            , {
-                field: 'image_url', width: 60, title: '封面', align: 'center', templet: function (d) {
+            , {field: 'image_url', width: 60, title: '封面', align: 'center', templet: function (d) {
                     return '<a href="' + d.image_url + '" target="_blank"><img src="' + d.image_url + '" height="26" /></a>';
                 }
             }

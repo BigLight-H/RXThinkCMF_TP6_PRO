@@ -14,14 +14,7 @@ layui.use(['function'], function () {
             {type: 'checkbox', fixed: 'left'}
             , {field: 'id', width: 80, title: 'ID', align: 'center', sort: true, fixed: 'left'}
             , {field: 'name', width: 300, title: '岗位名称', align: 'center'}
-            , {
-                field: 'status',
-                width: 100,
-                title: '状态',
-                align: 'center',
-                templet: '#statusTpl',
-                sort: true,
-                templet: function (d) {
+            , {field: 'status', width: 100, itle: '状态', align: 'center', sort: true, templet: function (d) {
                     var str = "";
                     if (d.status == 1) {
                         str = '<span class="layui-btn layui-btn-normal layui-btn-xs">在用</span>';

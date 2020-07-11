@@ -28,6 +28,6 @@ layui.use(['function'], function () {
         func.tableIns(cols, "tableList");
 
         //【设置弹框】
-        func.setWin("广告位", 750, 480);
+        func.setWin("广告位", 700, 480);
     }
 });

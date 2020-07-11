@@ -66,7 +66,7 @@ class Admin extends Backend
         $positionList = $positionMod->where("status", 1)->where("mark", 1)->order("sort asc")->select()->toArray();
         View::assign("positionList", $positionList);
 
-        // 上级菜单列表
+        // 获取上级部门
         $deptMod = new \app\admin\model\Dep();
         $result = $deptMod->getChilds(0, true);
         if ($result) {

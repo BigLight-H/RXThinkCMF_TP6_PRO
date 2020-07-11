@@ -63,11 +63,11 @@ class User extends BaseModel
             if ($info['birthday']) {
                 $info['format_birthday'] = datetime($info['birthday'], "Y-m-d");
             }
-
-            // 登录时间
-            if ($info['login_time']) {
-                $info['format_login_time'] = datetime($info['login_time']);
-            }
+//
+//            // 登录时间
+//            if ($info['login_time']) {
+//                $info['format_login_time'] = datetime($info['login_time']);
+//            }
         }
         return $info;
     }

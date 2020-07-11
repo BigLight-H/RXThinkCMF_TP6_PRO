@@ -43,27 +43,6 @@ class Menu extends BaseModel
             if ($info['type']) {
                 $info['type_name'] = config('admin.menu_type')[$info['type']];
             }
-
-            // 上级菜单
-            if ($info['pid']) {
-                $parent_info = $this->getInfo($info['pid']);
-                $info['parent_name'] = $parent_info['name'];
-            }
-
-            // 菜单地址
-            if ($info['type'] == 3) {
-                $map = [
-                    'pid' => $id,
-                    'type' => 4,
-                    'name' => "查看",
-                    'status' => 1,
-                    'mark' => 1,
-                ];
-                $result = $this->where($map)->find();
-                if ($result) {
-                    $info['to_url'] = $result['url'] . $result['param'];
-                }
-            }
         }
         return $info;
     }

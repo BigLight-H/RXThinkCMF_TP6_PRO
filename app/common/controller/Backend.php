@@ -11,6 +11,7 @@
 
 namespace app\common\controller;
 
+use app\admin\model\Menu;
 use app\common\model\system\Admin;
 use think\App;
 use think\exception\HttpResponseException;
@@ -114,7 +115,7 @@ class Backend extends CommonBase
     public function isLogin()
     {
         // 用户未登录返回 false
-        if(empty(session('adminId'))){
+        if (empty(session('adminId'))) {
             return false;
         }
         // 用户已登录返回 true
@@ -122,7 +123,7 @@ class Backend extends CommonBase
     }
 
     /**
-     * 自定义重定向方法 重要的操作二
+     * 自定义重定向方法
      * @param $args
      */
     public function redirectTo(...$args)
@@ -132,54 +133,45 @@ class Backend extends CommonBase
     }
 
     /**
-     * 权限验证
-     * @return array
-     * @since: 2020/6/30
+     * 检查权限
+     * @return array|mixed
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
      * @author 牧羊人
+     * @since 2020/7/9
      */
-    public function checkAuth()
+    private function checkAuth()
     {
         if (!in_array($this->request->controller(), ['Login', 'Index'])) {
-            // 获取菜单模块信息
-            $menuMod = new \app\admin\model\Menu();
-            $info = $menuMod->getInfoByAttr([
-                ['type', '=', 3],
-                ['url', '=', strtolower($this->request->controller())],
-            ]);
-            if (!$info) {
-                if (IS_POST) {
-                    return message('暂无操作权限', false);
-                }
-                $this->assign('funcList', []);
-                return $this->render('public/404');
-            }
-
-            // 获取操作权限点信息
+            // 获取菜单操作权限
+            $menuMod = new Menu();
             $requestUrl = strtolower("/" . $this->request->controller() . "/" . $this->request->action());
-            $funcInfo = $menuMod->where([
-                'pid' => $info['id'],
-                'type' => 4,
+            $menuInfo = $menuMod->where([
+                'type' => 3,
                 'url' => $requestUrl,
                 'mark' => 1
             ])->find();
-            if (!$funcInfo) {
+            if (!$menuInfo) {
                 if (IS_POST || IS_GET) {
                     return message('暂无操作权限', false);
                 }
                 return $this->render('public/404');
             }
 
-            // 获取操作权限节点列表
-            $funcArr = isset($this->system_auth[$info['id']]) ? $this->system_auth[$info['id']] : [];
+            // 获取节点操作权限
+            $funcArr = isset($this->permission[$menuInfo['id']]) ? $this->permission[$menuInfo['id']] : [];
             $funcList = [];
             if (is_array($funcArr)) {
                 $keys = array_values($funcArr);
+                // 加入当前菜单
+                $keys[] = $menuInfo['id'];
                 $funcList = $menuMod->where([
                     ['id', 'in', $keys]
-                ])->column('auth');
+                ])->column('permission');
             }
             $this->assign('funcList', $funcList);
-            if (!in_array($funcInfo['auth'], $funcList)) {
+            if (!in_array($menuInfo['permission'], $funcList)) {
                 if (IS_POST) {
                     return message('暂无操作权限', false);
                 }
