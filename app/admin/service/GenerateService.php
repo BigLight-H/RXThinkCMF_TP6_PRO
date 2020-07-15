@@ -170,6 +170,8 @@ class GenerateService extends BaseService
     {
         // 判断是否有图片
         $moduleImage = false;
+        // 查询条件
+        $queryList = [];
         // 获取数据列表
         $columnList = $this->getColumnList(DB_PREFIX . "{$tableName}");
         if ($columnList) {
@@ -183,8 +185,21 @@ class GenerateService extends BaseService
                     $val['columnImage'] = true;
                     $moduleImage = true;
                 }
+                // 下拉筛选
+                if (isset($val['columnValue'])) {
+                    $queryList[] = $val;
+                }
+                // 名称
+                if ($val['columnName'] == "name") {
+                    $queryList[] = $val;
+                }
+                // 标题
+                if ($val['columnName'] == "title") {
+                    $queryList[] = $val;
+                }
             }
         }
+
         // 参数
         $param = [
             'author' => $author,
@@ -193,6 +208,7 @@ class GenerateService extends BaseService
             'moduleTitle' => $moduleTitle,
             'columnList' => $columnList,
             'moduleImage' => $moduleImage,
+            'queryList' => $queryList,
         ];
         // 存储目录
         $FILE_PATH = APP_PATH . '/admin/service/';
