@@ -123,7 +123,10 @@ RXThinkCMF_TP6_PRO旗舰版 基于 ThinkPHP6 +Layui2.5.6 开发权限(RBAC)及�
 #### 14、用户管理
 ![用户管理](http://images.pro6.rxthink.cn/demo/14.png)
 
-#### 15、框架结构
+#### 15、一键生成模块
+![一键生成模块](http://images.pro6.rxthink.cn/demo/16.png)
+
+#### 16、框架结构
 ![框架结构](http://images.pro6.rxthink.cn/demo/15.png)
 
 ## 部署说明
@@ -131,6 +134,11 @@ RXThinkCMF_TP6_PRO旗舰版 基于 ThinkPHP6 +Layui2.5.6 开发权限(RBAC)及�
 [点击查看技术文档](http://docs.v6.rxthink.cn/)
 
 ## 更新说明
+
+# 2020-07-15
+1、【新增】新增一键生成模块文件的功能；
+
+2、【新增】新增模板文件，控制器模板、模型模板、服务类模板、JS文件模板、数据列表模板、表单页模板；
 
 # 2020-07-04
 1、【完成】完整项目常用组件的研发，如：上传图片、上传文件、日期选择、下拉选择、富文本编辑器等等；

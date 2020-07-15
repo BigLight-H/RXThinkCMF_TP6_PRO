@@ -14,13 +14,13 @@ layui.use(['function'], function () {
         var cols = [
             {type: 'checkbox', fixed: 'left'}
             , {field: 'id', width: 80, title: 'ID', align: 'center', sort: true, fixed: 'left'}
-            , {field: 'title', width: 200, title: '任务标题', align: 'center'}
+            , {field: 'title', width: 150, title: '任务标题', align: 'center'}
             , {field: 'type_name', width: 100, title: '任务类型', align: 'center'}
-            , {field: 'schedule', width: 150, title: '任务脚本', align: 'center'}
+            , {field: 'schedule', width: 300, title: '任务脚本', align: 'center'}
             , {field: 'maximums', width: 100, title: '最多执行', align: 'center'}
             , {field: 'executes', width: 100, title: '执行次数', align: 'center'}
             , {field: 'weigh', width: 100, title: '权重', align: 'center'}
-            , {field: 'status', width: 80, title: '状态', align: 'center', templet: '#statusTpl'}
+            , {field: 'status', width: 100, title: '状态', align: 'center', templet: '#statusTpl'}
             , {field: 'format_start_time', width: 180, title: '开始时间', align: 'center'}
             , {field: 'format_end_time', width: 180, title: '结束时间', align: 'center'}
             , {field: 'format_execute_time', width: 180, title: '最后执行时间', align: 'center'}
