@@ -108,6 +108,7 @@ layui.extend({
                             data: formData,
                             processData: false,
                             contentType: false,
+                            dataType: "json", //返回格式为json
                             success: function (result) {
                                 if (result.success) {
                                     //关闭提示层

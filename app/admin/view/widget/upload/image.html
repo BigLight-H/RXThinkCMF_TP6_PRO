@@ -11,16 +11,16 @@
 </style>
 <div class="layui-input-block">
 	<div class="layui-upload-drag">
-		<a href="<?php echo $img_url;?>" target="black">
-			<img id="{$name}_show_id" src="<?php echo $img_url;?>" alt="上传{$title}" title="上传{$title}" width="{$img_width}" height="{$img_height}">
+		<a href="<?php echo $imgUrl;?>" target="black">
+			<img id="{$name}_show_id" src="<?php echo $imgUrl;?>" alt="上传{$title}" title="上传{$title}" width="{$imgWidth}" height="{$imgHeight}">
 		</a>
-	 	<input type="hidden" id="{$name}" name="{$name}" value="<?php echo $img_url;?>">
+	 	<input type="hidden" id="{$name}" name="{$name}" value="<?php echo $imgUrl;?>">
 	</div>
 	<div style="margin-top:10px;">
 		<button type="button" class="layui-btn" id="btnUploadImg_{$name}"><i class="layui-icon">&#xe67c;</i>上传{$title}</button>
 	</div>
-	{if $size_tips neq null}
-	<div class="layui-form-mid layui-word-aux">建议尺寸：{$size_tips}</div>
+	{if $showTips neq null}
+	<div class="layui-form-mid layui-word-aux">建议尺寸：{$showTips}</div>
 	{/if}
 </div>
 <script type="text/javascript">
@@ -31,18 +31,18 @@ layui.use(['upload','croppers'],function(){
 	,croppers = layui.croppers
 	,$ = layui.$;
 	
-	if({$is_crop}==1) {
+	if("{$isCrop}"==1) {
 		
 		//图片裁剪组件
 	    croppers.render({
 	        elem: '#btnUploadImg_{$name}'
 	        ,name:"{$name}"
-	        ,saveW:{$crop_width}     //保存宽度
-	        ,saveH:{$crop_height}
-	        ,mark:{$crop_rate}    //选取比例
+	        ,saveW:{$cropWidth}     //保存宽度
+	        ,saveH:{$cropHeight}
+	        ,mark:{$cropRate}    //选取比例
 	        ,area:['750px','500px']  //弹窗宽度
 	        ,url: "/upload/uploadImage"
-	        ,done: function(url){ 
+	        ,done: function(url){
 	        	//上传完毕回调
 	            $('#{$name}').val(url);
 	            $('#{$name}_show_id').attr('src',url);
@@ -59,9 +59,9 @@ layui.use(['upload','croppers'],function(){
 			,url: "/upload/uploadImage"
 			,accept:'images'
 			,acceptMime:'image/*'
-			,exts: "{$exts}"
+			,exts: "{$imgExts}"
 			,field:'file'//文件域字段名
-			,size: {$size} //最大允许上传的文件大小
+			,size: {$imgSize} //最大允许上传的文件大小
 			,before: function(obj){
 				//预读本地文件
 			}

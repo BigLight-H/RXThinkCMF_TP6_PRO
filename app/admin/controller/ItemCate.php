@@ -77,7 +77,7 @@ class Itemcate extends Backend
                 foreach ($val['children'] as $vt) {
                     $cateList[] = [
                         'id' => $vt['id'],
-                        'name' => "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--" . $vt['name'],
+                        'name' => "|--" . $vt['name'],
                     ];
                 }
             }
