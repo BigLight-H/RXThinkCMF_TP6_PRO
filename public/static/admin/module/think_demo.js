@@ -1,7 +1,7 @@
 /**
- * 职级管理
+ * 演示管理
  * @author 牧羊人
- * @since 2020/07/15
+ * @since 2020/07/17
  */
 layui.use(['function'], function () {
     //声明变量
@@ -37,7 +37,7 @@ layui.use(['function'], function () {
         func.tableIns(cols, "tableList");
 
         //【设置弹框】
-        func.setWin("职级");
+        func.setWin("演示");
 
                 
         //【设置状态】

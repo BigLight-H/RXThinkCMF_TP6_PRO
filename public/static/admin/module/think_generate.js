@@ -1,7 +1,7 @@
 /**
- * 数据库管理
+ * 一键生成模块
  * @author 牧羊人
- * @since 2020/7/4
+ * @since 2020/7/16
  */
 layui.use(['function'], function () {
 

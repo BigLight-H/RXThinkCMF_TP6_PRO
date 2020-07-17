@@ -16,9 +16,9 @@ use app\admin\service\DemoService;
 use app\common\controller\Backend;
 
 /**
- * 职级管理-控制器
+ * 演示管理-控制器
  * @author 牧羊人
- * @since: 2020/07/15
+ * @since: 2020/07/17
  * Class Demo
  * @package app\admin\controller
  */
@@ -27,7 +27,7 @@ class Demo extends Backend
     /**
      * 初始化方法
      * @author 牧羊人
-     * @since: 2020/07/15
+     * @since: 2020/07/17
      */
     public function initialize()
     {
@@ -35,4 +35,33 @@ class Demo extends Backend
         $this->model = new \app\admin\model\Demo();
         $this->service = new DemoService();
     }
-}
+	
+	                	
+	/**
+	 * 设置状态	 
+	 * @return mixed
+	 * @since 2020/07/17	 
+	 * @author 牧羊人	 
+	 */
+	public function setStatus()
+	{
+		if (IS_POST) {
+			$result = $this->service->setStatus();
+			return $result;
+		}
+	}
+	        	
+	/**
+	 * 设置是否VIP	 
+	 * @return mixed
+	 * @since 2020/07/17	 
+	 * @author 牧羊人	 
+	 */
+	public function setIsVip()
+	{
+		if (IS_POST) {
+			$result = $this->service->setIsVip();
+			return $result;
+		}
+	}
+	                        }

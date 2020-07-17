@@ -4,9 +4,17 @@
 namespace app\admin\service;
 
 
+use app\admin\model\Menu;
 use app\common\service\BaseService;
 use think\facade\Db;
 
+/**
+ * 代码生层模块
+ * @author 牧羊人
+ * @since 2020/7/16
+ * Class GenerateService
+ * @package app\admin\service
+ */
 class GenerateService extends BaseService
 {
     /**
@@ -71,6 +79,7 @@ class GenerateService extends BaseService
         // 去除表描述中的`表`
         if (strpos($comment, "表") !== false) {
             $comment = str_replace("表", null, $comment);
+            $menuName = $comment;
         }
         // 去除表描述中的`管理`
         if (strpos($comment, "管理") !== false) {
@@ -84,13 +93,15 @@ class GenerateService extends BaseService
         // 生成服务类
         $this->generateService($author, $moduleName, $comment, $tableName);
         // 生成控制器
-        $this->generateController($author, $controllerName, $comment);
+        $this->generateController($author, $controllerName, $comment, $tableName);
         // 生成列表文件
         $this->generateIndex($comment, $tableName);
         // 生成表单文件
         $this->generateEdit($tableName);
         // 生成JS文件
         $this->generateJs($author, strtolower(str_replace('_', '', $tableName)), $comment, $tableName);
+        // 生成菜单
+        $this->generateMenu(strtolower(str_replace('_', '', $tableName)), $menuName);
 
         return message("模块生成成功");
     }
@@ -239,17 +250,21 @@ class GenerateService extends BaseService
      * @param $author 作者
      * @param $moduleName 模块名
      * @param $moduleTitle 模块标题
+     * @param $tableName 数据表名
      * @since 2020/7/15
      * @author 牧羊人
      */
-    public function generateController($author, $moduleName, $moduleTitle)
+    public function generateController($author, $moduleName, $moduleTitle, $tableName)
     {
+        // 获取数据列表
+        $columnList = $this->getColumnList(DB_PREFIX . "{$tableName}");
         // 参数
         $param = [
             'author' => $author,
             'since' => date('Y/m/d', time()),
             'moduleName' => $moduleName,
             'moduleTitle' => $moduleTitle,
+            'columnList' => $columnList,
         ];
         // 存储目录
         $FILE_PATH = APP_PATH . '/admin/controller/';
@@ -571,6 +586,7 @@ class GenerateService extends BaseService
                     if ($val['COLUMN_NAME'] == "status" || substr($val['COLUMN_NAME'], 0, 3) == "is_") {
                         $column['columnSwitch'] = true;
                         $column['columnSwitchValue'] = implode('|', $columnValueList);
+                        $column['columnSwitchName'] = 'set' . str_replace(' ', null, ucwords(strtolower(str_replace('_', ' ', $val['COLUMN_NAME']))));
                     } else {
                         $column['columnSwitch'] = false;
                     }
@@ -581,5 +597,142 @@ class GenerateService extends BaseService
             }
         }
         return $fields;
+    }
+
+    /**
+     * 生成模块菜单
+     * @param $moduleName 模块名称
+     * @param $moduleTitle 模块标题
+     * @throws \think\db\exception\BindParamException
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     * @throws \think\exception\PDOException
+     * @since 2020/7/16
+     * @author 牧羊人
+     */
+    public function generateMenu($moduleName, $moduleTitle)
+    {
+        // 查询已存在的菜单
+        $menuMod = new Menu();
+        $info = $menuMod->getOne([
+            ['permission', '=', "sys:{$moduleName}:index"],
+        ]);
+        $data = [
+            'id' => isset($info['id']) ? intval($info['id']) : 0,
+            'name' => $moduleTitle,
+            'icon' => 'layui-icon-component',
+            'url' => "/{$moduleName}/index",
+            'pid' => 131,
+            'type' => 3,
+            'permission' => "sys:{$moduleName}:index",
+        ];
+        $result = $menuMod->edit($data);
+        if ($result) {
+            // 创建节点
+            $funcList = [1, 5, 10, 15, 25, 30];
+            foreach ($funcList as $val) {
+                $item = [];
+                if ($val == 1) {
+                    // 列表
+                    $info = $menuMod->getOne([
+                        ['permission', '=', "sys:{$moduleName}:list"],
+                    ]);
+                    $item = [
+                        'id' => isset($info['id']) ? intval($info['id']) : 0,
+                        'name' => "列表",
+                        'url' => "/{$moduleName}/list",
+                        'permission' => "sys:{$moduleName}:list",
+                        'pid' => $result,
+                        'type' => 4,
+                        'status' => 1,
+                        'is_public' => 2,
+                        'sort' => $val,
+                    ];
+                } else if ($val == 5) {
+                    // 添加
+                    $info = $menuMod->getOne([
+                        ['permission', '=', "sys:{$moduleName}:add"],
+                    ]);
+                    $item = [
+                        'id' => isset($info['id']) ? intval($info['id']) : 0,
+                        'name' => "添加",
+                        'url' => "/{$moduleName}/edit",
+                        'permission' => "sys:{$moduleName}:add",
+                        'pid' => $result,
+                        'type' => 4,
+                        'status' => 1,
+                        'is_public' => 2,
+                        'sort' => $val,
+                    ];
+                } else if ($val == 10) {
+                    // 修改
+                    $info = $menuMod->getOne([
+                        ['permission', '=', "sys:{$moduleName}:edit"],
+                    ]);
+                    $item = [
+                        'id' => isset($info['id']) ? intval($info['id']) : 0,
+                        'name' => "修改",
+                        'url' => "/{$moduleName}/edit",
+                        'permission' => "sys:{$moduleName}:edit",
+                        'pid' => $result,
+                        'type' => 4,
+                        'status' => 1,
+                        'is_public' => 2,
+                        'sort' => $val,
+                    ];
+                } else if ($val == 15) {
+                    // 删除
+                    $info = $menuMod->getOne([
+                        ['permission', '=', "sys:{$moduleName}:drop"],
+                    ]);
+                    $item = [
+                        'id' => isset($info['id']) ? intval($info['id']) : 0,
+                        'name' => "删除",
+                        'url' => "/{$moduleName}/drop",
+                        'permission' => "sys:{$moduleName}:drop",
+                        'pid' => $result,
+                        'type' => 4,
+                        'status' => 1,
+                        'is_public' => 2,
+                        'sort' => $val,
+                    ];
+                } else if ($val == 25) {
+                    // 状态
+                    $info = $menuMod->getOne([
+                        ['permission', '=', "sys:{$moduleName}:status"],
+                    ]);
+                    $item = [
+                        'id' => isset($info['id']) ? intval($info['id']) : 0,
+                        'name' => "状态",
+                        'url' => "/{$moduleName}/setStatus",
+                        'permission' => "sys:{$moduleName}:status",
+                        'pid' => $result,
+                        'type' => 4,
+                        'status' => 1,
+                        'is_public' => 2,
+                        'sort' => $val,
+                    ];
+                } else if ($val == 30) {
+                    // 批量删除
+                    $info = $menuMod->getOne([
+                        ['permission', '=', "sys:{$moduleName}:batchDrop"],
+                    ]);
+                    $item = [
+                        'id' => isset($info['id']) ? intval($info['id']) : 0,
+                        'name' => "批量删除",
+                        'url' => "/{$moduleName}/batchDrop",
+                        'permission' => "sys:{$moduleName}:batchDrop",
+                        'pid' => $result,
+                        'type' => 4,
+                        'status' => 1,
+                        'is_public' => 2,
+                        'sort' => $val,
+                    ];
+                }
+                $menuMod = new Menu();
+                $menuMod->edit($item);
+            }
+        }
     }
 }

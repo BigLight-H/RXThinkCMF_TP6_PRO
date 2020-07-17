@@ -15,9 +15,9 @@ namespace app\admin\model;
 use app\common\model\BaseModel;
 
 /**
- * 职级-模型
+ * 演示-模型
  * @author 牧羊人
- * @since: 2020/07/15
+ * @since: 2020/07/17
  * Class Demo
  * @package app\admin\model
  */
@@ -33,7 +33,7 @@ class Demo extends BaseModel
      * @throws \think\db\exception\DataNotFoundException
      * @throws \think\db\exception\ModelNotFoundException
      * @author 牧羊人
-     * @since: 2020/07/15
+     * @since: 2020/07/17
      */
     public function getInfo($id)
     {

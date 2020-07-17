@@ -7,6 +7,13 @@ namespace app\admin\controller;
 use app\admin\service\GenerateService;
 use app\common\controller\Backend;
 
+/**
+ * 代码生成-控制器
+ * @author 牧羊人
+ * @since 2020/7/16
+ * Class Generate
+ * @package app\admin\controller
+ */
 class Generate extends Backend
 {
 
