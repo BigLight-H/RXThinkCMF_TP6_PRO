@@ -128,17 +128,17 @@
     },
     {
         "name": "alibabacloud/client",
-        "version": "1.5.25",
-        "version_normalized": "1.5.25.0",
+        "version": "1.5.27",
+        "version_normalized": "1.5.27.0",
         "source": {
             "type": "git",
             "url": "https://github.com/aliyun/openapi-sdk-php-client.git",
-            "reference": "1782a72f0b14cd71cdf618abc77b1b41fa172234"
+            "reference": "bdeef67f03a27e398f90193e6ea7a7ea06194086"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/aliyun/openapi-sdk-php-client/zipball/1782a72f0b14cd71cdf618abc77b1b41fa172234",
-            "reference": "1782a72f0b14cd71cdf618abc77b1b41fa172234",
+            "url": "https://api.github.com/repos/aliyun/openapi-sdk-php-client/zipball/bdeef67f03a27e398f90193e6ea7a7ea06194086",
+            "reference": "bdeef67f03a27e398f90193e6ea7a7ea06194086",
             "shasum": "",
             "mirrors": [
                 {
@@ -180,7 +180,7 @@
         "suggest": {
             "ext-sockets": "To use client-side monitoring"
         },
-        "time": "2020-07-04T08:02:21+00:00",
+        "time": "2020-07-17T12:16:14+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -217,17 +217,17 @@
     },
     {
         "name": "alibabacloud/sdk",
-        "version": "1.8.366",
-        "version_normalized": "1.8.366.0",
+        "version": "1.8.384",
+        "version_normalized": "1.8.384.0",
         "source": {
             "type": "git",
             "url": "https://github.com/aliyun/openapi-sdk-php.git",
-            "reference": "6e46159e227d687f2da656063680cf98395f30d6"
+            "reference": "2cb86223f9553106d0faa960a394ff9cd488953b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/aliyun/openapi-sdk-php/zipball/6e46159e227d687f2da656063680cf98395f30d6",
-            "reference": "6e46159e227d687f2da656063680cf98395f30d6",
+            "url": "https://api.github.com/repos/aliyun/openapi-sdk-php/zipball/2cb86223f9553106d0faa960a394ff9cd488953b",
+            "reference": "2cb86223f9553106d0faa960a394ff9cd488953b",
             "shasum": "",
             "mirrors": [
                 {
@@ -427,7 +427,7 @@
         "suggest": {
             "ext-sockets": "To use client-side monitoring"
         },
-        "time": "2020-07-06T09:51:23+00:00",
+        "time": "2020-07-17T10:47:38+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -508,17 +508,17 @@
     },
     {
         "name": "bacon/bacon-qr-code",
-        "version": "2.0.0",
-        "version_normalized": "2.0.0.0",
+        "version": "2.0.1",
+        "version_normalized": "2.0.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Bacon/BaconQrCode.git",
-            "reference": "eaac909da3ccc32b748a65b127acd8918f58d9b0"
+            "reference": "6e53ced3d2499cee4a0ef23a7c4d6449607ac7da"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Bacon/BaconQrCode/zipball/eaac909da3ccc32b748a65b127acd8918f58d9b0",
-            "reference": "eaac909da3ccc32b748a65b127acd8918f58d9b0",
+            "url": "https://api.github.com/repos/Bacon/BaconQrCode/zipball/6e53ced3d2499cee4a0ef23a7c4d6449607ac7da",
+            "reference": "6e53ced3d2499cee4a0ef23a7c4d6449607ac7da",
             "shasum": "",
             "mirrors": [
                 {
@@ -540,7 +540,7 @@
         "suggest": {
             "ext-imagick": "to generate QR code images"
         },
-        "time": "2018-04-25T17:53:56+00:00",
+        "time": "2020-07-14T11:04:05+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -735,17 +735,17 @@
     },
     {
         "name": "doctrine/cache",
-        "version": "1.10.1",
-        "version_normalized": "1.10.1.0",
+        "version": "1.10.2",
+        "version_normalized": "1.10.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/doctrine/cache.git",
-            "reference": "35a4a70cd94e09e2259dfae7488afc6b474ecbd3"
+            "reference": "13e3381b25847283a91948d04640543941309727"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/doctrine/cache/zipball/35a4a70cd94e09e2259dfae7488afc6b474ecbd3",
-            "reference": "35a4a70cd94e09e2259dfae7488afc6b474ecbd3",
+            "url": "https://api.github.com/repos/doctrine/cache/zipball/13e3381b25847283a91948d04640543941309727",
+            "reference": "13e3381b25847283a91948d04640543941309727",
             "shasum": "",
             "mirrors": [
                 {
@@ -770,7 +770,7 @@
         "suggest": {
             "alcaeus/mongo-php-adapter": "Required to use legacy MongoDB driver"
         },
-        "time": "2020-05-27T16:24:54+00:00",
+        "time": "2020-07-07T18:54:01+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -839,17 +839,17 @@
     },
     {
         "name": "endroid/qrcode",
-        "version": "3.8.2",
-        "version_normalized": "3.8.2.0",
+        "version": "3.9.1",
+        "version_normalized": "3.9.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/endroid/qr-code.git",
-            "reference": "1616778c697238b16e1b7592ea824bafcf7d108c"
+            "reference": "8605e2c958ed568788da4e16bd8a9502e32f375f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/endroid/qr-code/zipball/1616778c697238b16e1b7592ea824bafcf7d108c",
-            "reference": "1616778c697238b16e1b7592ea824bafcf7d108c",
+            "url": "https://api.github.com/repos/endroid/qr-code/zipball/8605e2c958ed568788da4e16bd8a9502e32f375f",
+            "reference": "8605e2c958ed568788da4e16bd8a9502e32f375f",
             "shasum": "",
             "mirrors": [
                 {
@@ -868,13 +868,15 @@
             "symfony/property-access": "^3.4||^4.4||^5.0"
         },
         "require-dev": {
-            "endroid/quality": "dev-master"
+            "endroid/quality": "dev-master",
+            "setasign/fpdf": "^1.8"
         },
         "suggest": {
             "roave/security-advisories": "Avoids installation of package versions with vulnerabilities",
+            "setasign/fpdf": "Required to use the FPDF writer.",
             "symfony/security-checker": "Checks your composer.lock for vulnerabilities"
         },
-        "time": "2020-06-19T08:57:37+00:00",
+        "time": "2020-07-10T10:16:06+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1986,17 +1988,17 @@
     },
     {
         "name": "phpmailer/phpmailer",
-        "version": "v6.1.6",
-        "version_normalized": "6.1.6.0",
+        "version": "v6.1.7",
+        "version_normalized": "6.1.7.0",
         "source": {
             "type": "git",
             "url": "https://github.com/PHPMailer/PHPMailer.git",
-            "reference": "c2796cb1cb99d7717290b48c4e6f32cb6c60b7b3"
+            "reference": "2c2370ba3df7034f9eb7b8f387c97b52b2ba5ad0"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/c2796cb1cb99d7717290b48c4e6f32cb6c60b7b3",
-            "reference": "c2796cb1cb99d7717290b48c4e6f32cb6c60b7b3",
+            "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/2c2370ba3df7034f9eb7b8f387c97b52b2ba5ad0",
+            "reference": "2c2370ba3df7034f9eb7b8f387c97b52b2ba5ad0",
             "shasum": "",
             "mirrors": [
                 {
@@ -2023,7 +2025,7 @@
             "stevenmaguire/oauth2-microsoft": "Needed for Microsoft XOAUTH2 authentication",
             "symfony/polyfill-mbstring": "To support UTF-8 if the Mbstring PHP extension is not enabled (^1.2)"
         },
-        "time": "2020-05-27T12:24:03+00:00",
+        "time": "2020-07-14T18:50:27+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -3054,17 +3056,17 @@
     },
     {
         "name": "symfony/polyfill-ctype",
-        "version": "v1.17.1",
-        "version_normalized": "1.17.1.0",
+        "version": "v1.18.0",
+        "version_normalized": "1.18.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/polyfill-ctype.git",
-            "reference": "2edd75b8b35d62fd3eeabba73b26b8f1f60ce13d"
+            "reference": "1c302646f6efc070cd46856e600e5e0684d6b454"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/2edd75b8b35d62fd3eeabba73b26b8f1f60ce13d",
-            "reference": "2edd75b8b35d62fd3eeabba73b26b8f1f60ce13d",
+            "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/1c302646f6efc070cd46856e600e5e0684d6b454",
+            "reference": "1c302646f6efc070cd46856e600e5e0684d6b454",
             "shasum": "",
             "mirrors": [
                 {
@@ -3079,11 +3081,11 @@
         "suggest": {
             "ext-ctype": "For best performance"
         },
-        "time": "2020-06-06T08:46:27+00:00",
+        "time": "2020-07-14T12:35:20+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.17-dev"
+                "dev-master": "1.18-dev"
             },
             "thanks": {
                 "name": "symfony/polyfill",
@@ -3138,17 +3140,17 @@
     },
     {
         "name": "symfony/polyfill-intl-grapheme",
-        "version": "v1.17.1",
-        "version_normalized": "1.17.1.0",
+        "version": "v1.18.0",
+        "version_normalized": "1.18.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/polyfill-intl-grapheme.git",
-            "reference": "6e4dbcf5e81eba86e36731f94fe56b1726835846"
+            "reference": "b740103edbdcc39602239ee8860f0f45a8eb9aa5"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/6e4dbcf5e81eba86e36731f94fe56b1726835846",
-            "reference": "6e4dbcf5e81eba86e36731f94fe56b1726835846",
+            "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/b740103edbdcc39602239ee8860f0f45a8eb9aa5",
+            "reference": "b740103edbdcc39602239ee8860f0f45a8eb9aa5",
             "shasum": "",
             "mirrors": [
                 {
@@ -3163,11 +3165,11 @@
         "suggest": {
             "ext-intl": "For best performance"
         },
-        "time": "2020-06-06T08:46:27+00:00",
+        "time": "2020-07-14T12:35:20+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.17-dev"
+                "dev-master": "1.18-dev"
             },
             "thanks": {
                 "name": "symfony/polyfill",
@@ -3224,17 +3226,17 @@
     },
     {
         "name": "symfony/polyfill-intl-normalizer",
-        "version": "v1.17.1",
-        "version_normalized": "1.17.1.0",
+        "version": "v1.18.0",
+        "version_normalized": "1.18.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/polyfill-intl-normalizer.git",
-            "reference": "40309d1700e8f72447bb9e7b54af756eeea35620"
+            "reference": "37078a8dd4a2a1e9ab0231af7c6cb671b2ed5a7e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/40309d1700e8f72447bb9e7b54af756eeea35620",
-            "reference": "40309d1700e8f72447bb9e7b54af756eeea35620",
+            "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/37078a8dd4a2a1e9ab0231af7c6cb671b2ed5a7e",
+            "reference": "37078a8dd4a2a1e9ab0231af7c6cb671b2ed5a7e",
             "shasum": "",
             "mirrors": [
                 {
@@ -3249,11 +3251,11 @@
         "suggest": {
             "ext-intl": "For best performance"
         },
-        "time": "2020-06-14T14:40:37+00:00",
+        "time": "2020-07-14T12:35:20+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.17-dev"
+                "dev-master": "1.18-dev"
             },
             "thanks": {
                 "name": "symfony/polyfill",
@@ -3313,17 +3315,17 @@
     },
     {
         "name": "symfony/polyfill-mbstring",
-        "version": "v1.17.1",
-        "version_normalized": "1.17.1.0",
+        "version": "v1.18.0",
+        "version_normalized": "1.18.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/polyfill-mbstring.git",
-            "reference": "7110338d81ce1cbc3e273136e4574663627037a7"
+            "reference": "a6977d63bf9a0ad4c65cd352709e230876f9904a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/7110338d81ce1cbc3e273136e4574663627037a7",
-            "reference": "7110338d81ce1cbc3e273136e4574663627037a7",
+            "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/a6977d63bf9a0ad4c65cd352709e230876f9904a",
+            "reference": "a6977d63bf9a0ad4c65cd352709e230876f9904a",
             "shasum": "",
             "mirrors": [
                 {
@@ -3338,11 +3340,11 @@
         "suggest": {
             "ext-mbstring": "For best performance"
         },
-        "time": "2020-06-06T08:46:27+00:00",
+        "time": "2020-07-14T12:35:20+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.17-dev"
+                "dev-master": "1.18-dev"
             },
             "thanks": {
                 "name": "symfony/polyfill",
@@ -3398,17 +3400,17 @@
     },
     {
         "name": "symfony/polyfill-php72",
-        "version": "v1.17.0",
-        "version_normalized": "1.17.0.0",
+        "version": "v1.18.0",
+        "version_normalized": "1.18.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/polyfill-php72.git",
-            "reference": "f048e612a3905f34931127360bdd2def19a5e582"
+            "reference": "639447d008615574653fb3bc60d1986d7172eaae"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-php72/zipball/f048e612a3905f34931127360bdd2def19a5e582",
-            "reference": "f048e612a3905f34931127360bdd2def19a5e582",
+            "url": "https://api.github.com/repos/symfony/polyfill-php72/zipball/639447d008615574653fb3bc60d1986d7172eaae",
+            "reference": "639447d008615574653fb3bc60d1986d7172eaae",
             "shasum": "",
             "mirrors": [
                 {
@@ -3420,11 +3422,15 @@
         "require": {
             "php": ">=5.3.3"
         },
-        "time": "2020-05-12T16:47:27+00:00",
+        "time": "2020-07-14T12:35:20+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.17-dev"
+                "dev-master": "1.18-dev"
+            },
+            "thanks": {
+                "name": "symfony/polyfill",
+                "url": "https://github.com/symfony/polyfill"
             }
         },
         "installation-source": "dist",
@@ -3475,17 +3481,17 @@
     },
     {
         "name": "symfony/polyfill-php80",
-        "version": "v1.17.1",
-        "version_normalized": "1.17.1.0",
+        "version": "v1.18.0",
+        "version_normalized": "1.18.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/polyfill-php80.git",
-            "reference": "4a5b6bba3259902e386eb80dd1956181ee90b5b2"
+            "reference": "d87d5766cbf48d72388a9f6b85f280c8ad51f981"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/4a5b6bba3259902e386eb80dd1956181ee90b5b2",
-            "reference": "4a5b6bba3259902e386eb80dd1956181ee90b5b2",
+            "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/d87d5766cbf48d72388a9f6b85f280c8ad51f981",
+            "reference": "d87d5766cbf48d72388a9f6b85f280c8ad51f981",
             "shasum": "",
             "mirrors": [
                 {
@@ -3497,11 +3503,11 @@
         "require": {
             "php": ">=7.0.8"
         },
-        "time": "2020-06-06T08:46:27+00:00",
+        "time": "2020-07-14T12:35:20+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.17-dev"
+                "dev-master": "1.18-dev"
             },
             "thanks": {
                 "name": "symfony/polyfill",
@@ -4239,17 +4245,17 @@
     },
     {
         "name": "topthink/think-multi-app",
-        "version": "v1.0.13",
-        "version_normalized": "1.0.13.0",
+        "version": "v1.0.14",
+        "version_normalized": "1.0.14.0",
         "source": {
             "type": "git",
             "url": "https://github.com/top-think/think-multi-app.git",
-            "reference": "21ac02a99bd69e29444963841e09c5d39b2bcecb"
+            "reference": "ccaad7c2d33f42cb1cc2a78d6610aaec02cea4c3"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/top-think/think-multi-app/zipball/21ac02a99bd69e29444963841e09c5d39b2bcecb",
-            "reference": "21ac02a99bd69e29444963841e09c5d39b2bcecb",
+            "url": "https://api.github.com/repos/top-think/think-multi-app/zipball/ccaad7c2d33f42cb1cc2a78d6610aaec02cea4c3",
+            "reference": "ccaad7c2d33f42cb1cc2a78d6610aaec02cea4c3",
             "shasum": "",
             "mirrors": [
                 {
@@ -4262,7 +4268,7 @@
             "php": ">=7.1.0",
             "topthink/framework": "^6.0.0"
         },
-        "time": "2020-04-24T08:53:21+00:00",
+        "time": "2020-07-12T13:50:37+00:00",
         "type": "library",
         "extra": {
             "think": {

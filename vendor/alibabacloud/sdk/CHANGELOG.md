@@ -1,5 +1,93 @@
 # CHANGELOG
 
+## 1.8.384 - 2020-7-17
+- Add DescribeRegions.
+- Modify DescribeFullBackupList.
+- Modify DescribeBackupPlanList.
+- Modify DescribeRestoreRangeInfo.
+
+
+## 1.8.383 - 2020-7-17
+- Add actions.
+
+
+## 1.8.382 - 2020-7-16
+- Add more OpenAPIs related to QueryProcessor, FirstRank, SecondRank, etc.
+
+
+## 1.8.381 - 2020-7-15
+- Edit ListTraceApp api.
+- Edit SearchTraceAppByName api.
+- Edut SearchTraceAppByPage api.
+
+
+## 1.8.380 - 2020-7-15
+- Support ModifyImageAttribute by LaunchPermission.
+- Support ImageFamily.
+
+
+## 1.8.379 - 2020-7-14
+- Add Dynamic Registration APIs, including TransformClientId, DeleteClientIds, QueryClientIds, etc.
+- Update OTA API, including CreateOTAStaticUpgradeJob and QueryOTAJob.
+- Update Device Shadow API UpdateDeviceShadow.
+
+
+## 1.8.378 - 2020-7-14
+- Support Web SDK.
+
+
+## 1.8.377 - 2020-7-14
+- Fixed bug for service code.
+
+
+## 1.8.376 - 2020-7-14
+- Supported API for DescribeDohUserInfo.
+- Supported API for DescribeDohAccountStatistics.
+- Supported API for DescribeDohDomainStatistics.
+- Supported API for DescribeDohDomainStatisticsSummary.
+- Supported API for DescribeDohSubDomainStatistics.
+- Supported API for DescribeDohSubDomainStatisticsSummary.
+
+
+## 1.8.375 - 2020-7-10
+- Sdk for 109.
+
+
+## 1.8.374 - 2020-7-9
+- Add accountType for customer service.
+
+
+## 1.8.373 - 2020-7-9
+- Add accountType for renderOrder.
+
+
+## 1.8.372 - 2020-7-9
+- Add Log Monitoring API.
+- Add and modify non Alibaba Cloud host name API.
+
+
+## 1.8.371 - 2020-7-8
+- Remove GetFootwearPosition PullTakeShoesEvent PullTryOnShoesEvent.
+- Add GetFootwearEvent.
+- Please ignore the pd s pot.
+
+
+## 1.8.370 - 2020-7-8
+- Add video compose api.
+
+
+## 1.8.369 - 2020-7-8
+- Generated 2020-05-18 for `dataworks-public`.
+
+
+## 1.8.368 - 2020-7-8
+- Support hotword and hint.
+
+
+## 1.8.367 - 2020-7-7
+- Generated 2020-05-18 for `dataworks-public`.
+
+
 ## 1.8.366 - 2020-7-6
 - Sdk for 101.
 

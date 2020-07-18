@@ -1,0 +1,1 @@
+<div class="footer"> Copyright © 2017~2020 <a href="http://www.rxthink.cn/" target="_blank">www.rxthink.cn</a>. All rights reserved.</div>

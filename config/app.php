@@ -16,7 +16,8 @@ return [
     'default_app'      => 'index',
     // 默认时区
     'default_timezone' => 'Asia/Shanghai',
-
+    // 自动多应用模式
+    'auto_multi_app'   => true,
     // 应用映射（自动多应用模式有效）
     'app_map'          => [],
     // 域名绑定（自动多应用模式有效）
@@ -26,6 +27,7 @@ return [
         'm'            =>  'm',
         'api'          =>  'api',
         'script'       =>  'script',
+        '*'            =>  'index',
     ],
     // 禁止URL访问的应用列表（自动多应用模式有效）
     'deny_app_list'    => ['common'],
