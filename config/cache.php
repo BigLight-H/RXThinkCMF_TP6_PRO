@@ -29,17 +29,17 @@ return [
         'redis' => [
             // 驱动方式
             'type'       => 'redis',
-            'host'       => env('redis.host', '127.0.0.1'),
-            'port'       => env('redis.port', 6379),
-            'password'   => env('redis.password', ''),
-            'select'     => env('redis.select', 0),
-            'timeout'    => env('redis.timeout', 0),
+            'host'       => env('cache.host', '127.0.0.1'),
+            'port'       => env('cache.port', 6379),
+            'password'   => env('cache.password', ''),
+            'select'     => intval(env('cache.select', 0)),
+            'timeout'    => env('cache.timeout', 0),
             // 全局缓存有效期（0为永久有效）
-            'expire'     => env('redis.expire', 0),
-            'persistent' => env('redis.persistent', ''),
+            'expire'     => env('cache.expire', 0),
+            'persistent' => env('cache.persistent', ''),
             // 缓存前缀
-            'prefix'     => env('redis.prefix', 'TH_'),
-            'tag_prefix' => env('redis.tag_prefix', 'tag:'),
+            'prefix'     => env('cache.prefix', 'PRO_'),
+            'tag_prefix' => env('cache.tag_prefix', 'tag:'),
             'serialize'  => [],
         ],
         // 更多的缓存连接
