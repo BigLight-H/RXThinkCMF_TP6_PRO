@@ -67,13 +67,19 @@ class Admin extends BaseModel
                 $levelInfo = $levelMod->getInfo($info['level_id']);
                 $info['level_name'] = $levelInfo['name'];
             }
-//
-//            // 所属城市
-//            if ($info['district_id']) {
-//                $cityMod = new City();
-//                $cityName = $cityMod->getCityName($info['district_id'], " ");
-//                $info['city_name'] = $cityName;
-//            }
+
+            // 获取城市名称
+            if ($info['district_id']) {
+                $cityMod = new City();
+                $cityName = $cityMod->getCityName($info['district_id'], " ");
+                if ($cityName) {
+                    $info['city_name'] = $cityName;
+                    $cityItem = explode(" ", $cityName);
+                    $info['province_name'] = $cityItem[0];
+                    $info['city_name'] = $cityItem[1];
+                    $info['district_name'] = $cityItem[2];
+                }
+            }
 
             // 获取人员权限
             $adminRomMod = new AdminRom();
