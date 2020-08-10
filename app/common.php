@@ -1298,7 +1298,7 @@ if (!function_exists('save_remote_image')) {
             return false;
         }
         $save_path = create_image_path($save_dir, $image_ext);
-        return file_put_contents(IMG_PATH . $save_path, $content) ? $save_path : false;
+        return file_put_contents(IMG_PATH . $save_path, $content) ? str_replace(ATTACHMENT_PATH, "", IMG_PATH) . $save_path : false;
     }
 }
 
@@ -1321,8 +1321,7 @@ if (!function_exists('save_image_content')) {
             foreach ($match[1] as $id => $val) {
                 $save_image = save_image($val, $path);
                 if ($save_image) {
-
-                    $content = str_replace($val, "[IMG_URL]" . str_replace(ATTACHMENT_PATH, "", IMG_PATH) . $save_image, $content);
+                    $content = str_replace($val, "[IMG_URL]" . $save_image, $content);
                 }
             }
         }

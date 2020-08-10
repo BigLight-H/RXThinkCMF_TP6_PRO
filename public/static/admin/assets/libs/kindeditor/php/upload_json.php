@@ -8,9 +8,12 @@
  */
 
 require_once './JSON.php';
-define ('ROOT_PATH', str_replace('\\', '/', dirname(dirname(dirname(dirname(dirname(dirname(__FILE__))))))));
-$php_path = ROOT_PATH . '/uploads/images/';
-$php_url = 'http://'.str_replace('manage', 'images', $_SERVER['SERVER_NAME']).'/';
+define ('ROOT_PATH', str_replace('\\', '/', dirname(dirname(dirname(dirname(dirname(dirname(dirname(__FILE__)))))))));
+$php_path = ROOT_PATH . '/uploads/';
+
+preg_match("#\.(.*)#i", $_SERVER ['HTTP_HOST'], $match);//获取根域名
+$domin = $match[1];
+$php_url = 'http://images.' . $match[1] . '/';
 
 //文件保存目录路径
 $save_path = $php_path . 'temp/';
@@ -101,7 +104,7 @@ if (empty($_FILES) === false) {
 	if (in_array($file_ext, $ext_arr[$dir_name]) === false) {
 		alert("上传文件扩展名是不允许的扩展名。\n只允许" . implode(",", $ext_arr[$dir_name]) . "格式。");
 	}
-	$ymd = date("Y/m/d");
+	$ymd = date("Ymd");
 	$save_path .=  $ymd . "/";
 	$save_url .= $ymd . "/";
 	if (!file_exists($save_path)) {

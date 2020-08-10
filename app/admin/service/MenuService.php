@@ -48,6 +48,18 @@ class MenuService extends BaseService
         if (!$result) {
             return message("操作失败", false);
         }
+
+        // 设置菜单不显示或显示时同步设置子级菜单节点状态
+        if ($data['type'] == 3) {
+            $list = $this->model->where("pid", $data['id'])->where("type", 4)->where("mark", 1)->select()->toArray();
+            foreach ($list as $val) {
+                // 设置菜单节点状态
+                $val['status'] = $data['status'];
+                $menuMod = new Menu();
+                $menuMod->edit($val);
+            }
+        }
+
         // 节点参数
         $func = isset($data['func']) ? $data['func'] : "";
         // URL地址

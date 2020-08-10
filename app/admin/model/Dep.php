@@ -53,7 +53,7 @@ class Dep extends BaseModel
                     continue;
                 }
                 if ($flag) {
-                    $childList = $this->getChilds($id, 0);
+                    $childList = $this->getChilds($id, $flag);
                     $info['children'] = $childList;
                 }
                 $list[] = $info;
