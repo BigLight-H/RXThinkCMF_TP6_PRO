@@ -18,7 +18,7 @@ use app\common\controller\Backend;
 /**
  * 演示管理-控制器
  * @author 牧羊人
- * @since: 2020/07/17
+ * @since: 2020/08/16
  * Class Demo
  * @package app\admin\controller
  */
@@ -27,7 +27,7 @@ class Demo extends Backend
     /**
      * 初始化方法
      * @author 牧羊人
-     * @since: 2020/07/17
+     * @since: 2020/08/16
      */
     public function initialize()
     {
@@ -40,7 +40,7 @@ class Demo extends Backend
 	/**
 	 * 设置状态	 
 	 * @return mixed
-	 * @since 2020/07/17	 
+	 * @since 2020/08/16	 
 	 * @author 牧羊人	 
 	 */
 	public function setStatus()
@@ -54,7 +54,7 @@ class Demo extends Backend
 	/**
 	 * 设置是否VIP	 
 	 * @return mixed
-	 * @since 2020/07/17	 
+	 * @since 2020/08/16	 
 	 * @author 牧羊人	 
 	 */
 	public function setIsVip()

@@ -18,7 +18,7 @@ use app\common\service\BaseService;
 /**
  * 演示管理-服务类
  * @author 牧羊人
- * @since: 2020/07/17
+ * @since: 2020/08/16
  * Class DemoService
  * @package app\admin\service
  */
@@ -36,7 +36,7 @@ class DemoService extends BaseService
 	/**
      * 获取数据列表
      * @return array
-     * @since 2020/07/17
+     * @since 2020/08/16
      * @author 牧羊人
      */
     public function getList()
@@ -77,7 +77,7 @@ class DemoService extends BaseService
 	/**
      * 添加或编辑
      * @return array
-     * @since 2020/07/17
+     * @since 2020/08/16
      * @author 牧羊人
      */
     public function edit()
@@ -102,7 +102,7 @@ class DemoService extends BaseService
 	 * @return array
      * @throws \think\db\exception\BindParamException
      * @throws \think\exception\PDOException
-     * @since 2020/07/17     
+     * @since 2020/08/16     
 	 * @author 牧羊人     
 	 */
     public function setStatus()
@@ -128,7 +128,7 @@ class DemoService extends BaseService
 	 * @return array
      * @throws \think\db\exception\BindParamException
      * @throws \think\exception\PDOException
-     * @since 2020/07/17     
+     * @since 2020/08/16     
 	 * @author 牧羊人     
 	 */
     public function setIsVip()

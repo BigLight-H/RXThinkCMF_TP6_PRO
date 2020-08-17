@@ -17,7 +17,7 @@ use app\common\model\BaseModel;
 /**
  * 演示-模型
  * @author 牧羊人
- * @since: 2020/07/17
+ * @since: 2020/08/16
  * Class Demo
  * @package app\admin\model
  */
@@ -33,7 +33,7 @@ class Demo extends BaseModel
      * @throws \think\db\exception\DataNotFoundException
      * @throws \think\db\exception\ModelNotFoundException
      * @author 牧羊人
-     * @since: 2020/07/17
+     * @since: 2020/08/16
      */
     public function getInfo($id)
     {

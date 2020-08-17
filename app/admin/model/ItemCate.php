@@ -116,11 +116,15 @@ class ItemCate extends BaseModel
             $names[] = $info['name'];
             $cateId = $info['pid'];
         } while ($cateId > 0);
-        $names = array_reverse($names);
-        if (strpos($names[1], $names[0]) === 0) {
-            unset($names[0]);
+        if (!empty($names)) {
+            $names = array_reverse($names);
+            if (count($names) >= 2) {
+                if (strpos($names[1], $names[0]) === 0) {
+                    unset($names[0]);
+                }
+            }
+            return implode($delimiter, $names);
         }
-        $nameStr = implode($delimiter, $names);
-        return $nameStr;
+        return null;
     }
 }
