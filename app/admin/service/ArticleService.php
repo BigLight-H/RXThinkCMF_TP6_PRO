@@ -52,6 +52,7 @@ class ArticleService extends BaseService
             $data['cover'] = str_replace(IMG_URL, "", $data['cover']);
         }
         // 文章图集
+        $imgStr = [];
         $imgsList = trim($data['imgs']);
         if ($imgsList) {
             $imgArr = explode(',', $imgsList);

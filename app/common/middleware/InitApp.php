@@ -60,7 +60,7 @@ class InitApp
 
         // 附件常量
         // 文件上传路径
-        $upload_parh = \think\Facade\Filesystem::getDiskConfig(config('filesystem.default'), 'root');
+        $upload_parh = \think\facade\Filesystem::getDiskConfig(config('filesystem.default'), 'root');
         define('ATTACHMENT_PATH', $upload_parh);
         define('IMG_PATH', ATTACHMENT_PATH . "/images");
         define('UPLOAD_TEMP_PATH', IMG_PATH . '/temp');

@@ -19,7 +19,7 @@
 	<div class="layui-form-item">
 		<label class="layui-form-label">文章图集：</label>
 		<div class="layui-input-block">
-			{upload:album name="imgs|图集|90x90|20|建议上传尺寸450x450|450x450" value="$info['imgsList']"}
+			{upload:album name="imgs|图集|90x90|20|建议上传尺寸450x450|450x450" value="isset($info['imgsList']) ? $info['imgsList'] : []"}
 		</div>
 	</div>
 	<div class="layui-form-item">

@@ -49,14 +49,42 @@ class MenuService extends BaseService
             return message("操作失败", false);
         }
 
-        // 设置菜单不显示或显示时同步设置子级菜单节点状态
-        if ($data['type'] == 3) {
-            $list = $this->model->where("pid", $data['id'])->where("type", 4)->where("mark", 1)->select()->toArray();
-            foreach ($list as $val) {
-                // 设置菜单节点状态
-                $val['status'] = $data['status'];
-                $menuMod = new Menu();
-                $menuMod->edit($val);
+        // 上级菜单设置隐藏和显示，默认同步更新子级菜单
+        $menuList = $this->model->getChilds($result, true);
+        foreach ($menuList as $val) {
+            // 设置状态值
+            $menuMod = new Menu();
+            $v = [
+                'id' => $val['id'],
+                'status' => $data['status'],
+                'is_public' => $data['is_public'],
+            ];
+            $menuMod->edit($v);
+
+            // 获取子级
+            $children = $val['children'];
+            if (is_array($children) && !empty($children)) {
+                foreach ($children as $vt) {
+                    $item = [
+                        'id' => $vt['id'],
+                        'status' => $data['status'],
+                        'is_public' => $data['is_public'],
+                    ];
+                    $menuMod = new Menu();
+                    $menuMod->edit($item);
+
+                    // 更新子级菜单
+                    $children2 = $vt['children'];
+                    foreach ($children2 as $vo) {
+                        $subItem = [
+                            'id' => $vo['id'],
+                            'status' => $data['status'],
+                            'is_public' => $data['is_public'],
+                        ];
+                        $menuMod = new Menu();
+                        $menuMod->edit($subItem);
+                    }
+                }
             }
         }
 
