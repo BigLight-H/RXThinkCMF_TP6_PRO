@@ -50,9 +50,9 @@ class Index extends Backend
         $this->app->view->layout(false);
 
         // 获取导航菜单
-        $menuService = new MenuService();
-        $result = $menuService->getNavbarMenu($this->permission);
-        View::assign("menuList", $result['data']);
+        $adminRomMod = new \app\admin\model\AdminRom();
+        $menuList = $adminRomMod->getPermissionList($this->adminId);
+        View::assign("menuList", $menuList);
         return $this->render();
     }
 

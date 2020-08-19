@@ -91,7 +91,7 @@
 	</div>
 	<div class="layui-form-item">
 		<label class="layui-form-label">所属城市：</label>
-		{city:select value="isset($info['province_id'])?$info['province_id']: 0,isset($info['province_name'])?$info['province_name']: ''|isset($info['city_id'])?$info['city_id']:0,isset($info['city_name'])?$info['city_name']:''|isset($info['district_id'])?$info['district_id']:0,isset($info['district_name'])?$info['district_name']:''" limit="3"}
+		{city:select value="isset($info['province_name'])?$info['province_name']: '',isset($info['city_name'])?$info['city_name']:'',isset($info['district_name'])?$info['district_name']:''" limit="3"}
 	</div>
 	<div class="layui-form-item" style="width: 625px;">
 		<label class="layui-form-label">详细地址：</label>

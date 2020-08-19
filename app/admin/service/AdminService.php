@@ -68,7 +68,7 @@ class AdminService extends BaseService
         // 请求参数
         $data = request()->param();
         // 头像处理
-        $avatar = trim($data['avatar']);
+        $avatar = isset($data['avatar']) ? trim($data['avatar']) : '';
         if (strpos($avatar, "temp")) {
             $data['avatar'] = save_image($avatar, 'admin');
         } else {

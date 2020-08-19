@@ -103,9 +103,9 @@ class City extends BaseModel
             $cityId = isset($info['pid']) ? (int)$info['pid'] : 0;
         } while ($cityId > 1);
         $names = array_reverse($names);
-        if (strpos($names[1], $names[0]) === 0) {
-            unset($names[0]);
-        }
+//        if (strpos($names[1], $names[0]) === 0) {
+//            unset($names[0]);
+//        }
         return implode($delimiter, $names);
     }
 }

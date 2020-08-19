@@ -52,14 +52,30 @@ class AdminRom extends BaseModel
      */
     public function getPermissionList($adminId)
     {
+
         $adminMod = new Admin();
         $adminInfo = $adminMod->where("id", $adminId)->find();
+        $menuList = $this->getPermissionMenu($adminInfo['role_ids'], $adminId, 1, 0);
+        return $menuList;
+    }
 
+    /**
+     * 获取权限菜单
+     * @param $roleIds
+     * @param $adminId
+     * @param $type
+     * @param $pid
+     * @return mixed
+     * @since 2020/8/19
+     * @author 牧羊人
+     */
+    public function getPermissionMenu($roleIds, $adminId, $type, $pid)
+    {
         $map1 = [];
-        if ($adminInfo['role_ids']) {
+        if ($roleIds) {
             $map1 = [
                 ['r.type', '=', 1],
-                ['r.type_id', 'in', $adminInfo['role_ids']],
+                ['r.type_id', 'in', $roleIds],
             ];
         }
         $map2 = [
@@ -74,36 +90,24 @@ class AdminRom extends BaseModel
             ->where(function ($query) use ($map) {
                 $query->whereOr($map);
             })
-            ->where('m.type', '=', 3)
+            ->where('m.type', '=', $type)
+            ->where('m.pid', '=', $pid)
             ->where('m.status', '=', 1)
             ->where('m.mark', '=', 1)
             ->order('m.pid ASC,m.sort ASC')
-            ->field('m.id')
-            ->select();
-        $list = [];
+            ->field('m.*')
+            ->select()->toArray();
         if (!empty($menuList)) {
-            foreach ($menuList as $vm) {
-                // 根据菜单获取节点
-                $funcList = $menuMod->alias('m')
-                    ->join(DB_PREFIX . 'admin_rom r', 'r.menu_id=m.id')
-                    ->distinct(true)
-                    ->where(function ($query) use ($map) {
-                        $query->whereOr($map);
-                    })
-                    ->where('m.type', '=', 4)
-                    ->where('m.pid', '=', intval($vm['id']))
-                    ->where('m.status', '=', 1)
-                    ->where('m.mark', '=', 1)
-                    ->order('m.id ASC')
-                    ->field('m.id')
-                    ->select();
-                if ($funcList) {
-                    foreach ($funcList as $v) {
-                        $list[$vm['id']][] = $v['id'];
+            $type += 1;
+            if ($type <= 4) {
+                foreach ($menuList as &$val) {
+                    $childList = $this->getPermissionMenu($roleIds, $adminId, $type, $val['id']);
+                    if (is_array($childList) && !empty($childList)) {
+                        $val['children'] = $childList;
                     }
                 }
             }
         }
-        return $list;
+        return $menuList;
     }
 }

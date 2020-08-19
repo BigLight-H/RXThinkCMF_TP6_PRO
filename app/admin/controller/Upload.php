@@ -36,7 +36,7 @@ class Upload extends Backend
         // 上传图片
         $result = upload_image('file', '', $error);
         if (!$result) {
-            return message($error);
+            return message($error, false);
         }
         // 多图片上传处理
         $list = [];
