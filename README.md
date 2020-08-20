@@ -107,10 +107,10 @@ RXThinkCMF_TP6_PRO旗舰版 基于 ThinkPHP6 +Layui2.5.6 开发权限(RBAC)及�
  ![人员管理](http://images.pro6.rxthink.cn/demo/3.png)
  
 #### 4、人员编辑
- ![图片裁剪](http://images.pro6.rxthink.cn/demo/4.png)
+ ![人员编辑](http://images.pro6.rxthink.cn/demo/4.png)
  
-#### 5、角色管理
- ![角色管理](http://images.pro6.rxthink.cn/demo/5.png)
+#### 5、角色设置
+ ![角色设置](http://images.pro6.rxthink.cn/demo/5.png)
  
 #### 6、职级管理
  ![职级管理](http://images.pro6.rxthink.cn/demo/6.png)
@@ -127,29 +127,46 @@ RXThinkCMF_TP6_PRO旗舰版 基于 ThinkPHP6 +Layui2.5.6 开发权限(RBAC)及�
 #### 10、菜单编辑
 ![菜单编辑](http://images.pro6.rxthink.cn/demo/10.png)
 
-#### 11、字典管理
-![字典管理](http://images.pro6.rxthink.cn/demo/11.png)
+#### 11、广告管理
+![广告管理](http://images.pro6.rxthink.cn/demo/11.png)
 
-#### 12、数据库管理
-![数据库管理](http://images.pro6.rxthink.cn/demo/12.png)
+#### 12、配置管理
+![配置管理](http://images.pro6.rxthink.cn/demo/12.png)
 
-#### 13、文章管理
-![文章管理](http://images.pro6.rxthink.cn/demo/13.png)
+#### 13、字典管理
+![字典管理](http://images.pro6.rxthink.cn/demo/13.png)
 
-#### 14、用户管理
-![用户管理](http://images.pro6.rxthink.cn/demo/14.png)
+#### 14、友链管理
+![友链管理](http://images.pro6.rxthink.cn/demo/14.png)
 
-#### 15、一键生成模块
-![一键生成模块](http://images.pro6.rxthink.cn/demo/16.png)
+#### 15、通知公告
+![通知公告](http://images.pro6.rxthink.cn/demo/15.png)
 
-#### 16、框架结构
-![框架结构](http://images.pro6.rxthink.cn/demo/15.png)
+#### 16、代码生成器
+![代码生成器](http://images.pro6.rxthink.cn/demo/16.png)
+
+#### 17、数据库管理
+![数据库管理](http://images.pro6.rxthink.cn/demo/17.png)
+
+#### 18、文章管理
+![文章管理](http://images.pro6.rxthink.cn/demo/18.png)
+
+#### 19、统计报表
+![统计报表](http://images.pro6.rxthink.cn/demo/19.png)
+
+#### 20、统计报表
+![统计报表](http://images.pro6.rxthink.cn/demo/20.png)
 
 ## 部署说明
 
 [点击查看技术文档](http://docs.v6.rxthink.cn/)
 
 ## 更新说明
+
+# 2020.08.20
+1、【优化】优化菜单模块，重构后台菜单导航实现业务逻辑；
+
+2、【修复】修复近期客户反馈的小BUG；
 
 # 2020.07.18
 1、【新增】新增一键安装程序；
