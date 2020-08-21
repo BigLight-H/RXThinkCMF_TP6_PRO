@@ -2,7 +2,7 @@
 	<input name="id" id="id" type="hidden" value="{$info.id|default=0}">
 	<div class="layui-form-item">
 		<label class="layui-form-label">用户头像：</label>
-		{upload:image name="avatar|头像|90x90|建议上传尺寸450x450" value="isset($info['avatar_url']) ? $info['avatar_url'] : ''"}
+		{upload:image name="avatar|头像|90x90|建议上传尺寸450x450|450x450" value="isset($info['avatar_url']) ? $info['avatar_url'] : ''"}
 	</div>
 	<div class="layui-form-item">
 		<div class="layui-inline">
@@ -48,7 +48,7 @@
 	</div>
 	<div class="layui-form-item">
 		<label class="layui-form-label">所属城市：</label>
-		{city:select value="isset($info['district_id']) ? $info['district_id'] : 0" limit="3"}
+		{city:select value="isset($info['province_name'])?$info['province_name']: '',isset($info['city_name'])?$info['city_name']:'',isset($info['district_name'])?$info['district_name']:''" limit="3"}
 	</div>
 	<div class="layui-form-item" style="width:625px;">
 		<label class="layui-form-label">个人简介：</label>

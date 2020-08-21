@@ -110,4 +110,43 @@ class AdminRom extends BaseModel
         }
         return $menuList;
     }
+
+    /**
+     * 获取权限节点列表
+     * @param $roleIds 角色ID
+     * @param $adminId 人员ID
+     * @param $pid 上级ID
+     * @return mixed
+     * @author 牧羊人
+     * @since 2020/8/21
+     */
+    public function getPermissionFuncList($roleIds, $adminId, $pid)
+    {
+        $map1 = [];
+        if ($roleIds) {
+            $map1 = [
+                ['r.type', '=', 1],
+                ['r.type_id', 'in', $roleIds],
+            ];
+        }
+        $map2 = [
+            ['r.type', '=', 2],
+            ['r.type_id', '=', $adminId],
+        ];
+        $map = [$map1, $map2];
+        $menuMod = new Menu();
+        $funcList = $menuMod->alias('m')
+            ->join(DB_PREFIX . 'admin_rom r', 'r.menu_id=m.id')
+            ->distinct(true)
+            ->where(function ($query) use ($map) {
+                $query->whereOr($map);
+            })
+            ->where('m.type', '=', 4)
+            ->where('m.pid', '=', $pid)
+            ->where('m.status', '=', 1)
+            ->where('m.mark', '=', 1)
+            ->order('m.pid ASC,m.sort ASC')
+            ->column('m.permission');
+        return $funcList;
+    }
 }

@@ -50,9 +50,7 @@ class User extends BaseModel
             }
 
             // 设备类型
-            if ($info['device']) {
-                $info['device_name'] = config("admin.user_device")[$info['device']];
-            }
+            $info['device_name'] = config("admin.user_device")[$info['device']];
 
             // 用户来源
             if ($info['source']) {
@@ -63,11 +61,19 @@ class User extends BaseModel
             if ($info['birthday']) {
                 $info['format_birthday'] = datetime($info['birthday'], "Y-m-d");
             }
-//
-//            // 登录时间
-//            if ($info['login_time']) {
-//                $info['format_login_time'] = datetime($info['login_time']);
-//            }
+
+            // 获取城市名称
+            if ($info['district_id']) {
+                $cityMod = new City();
+                $cityName = $cityMod->getCityName($info['district_id'], " ");
+                if ($cityName) {
+                    $info['city_area'] = $cityName;
+                    $cityItem = explode(" ", $cityName);
+                    $info['province_name'] = $cityItem[0];
+                    $info['city_name'] = $cityItem[1];
+                    $info['district_name'] = $cityItem[2];
+                }
+            }
         }
         return $info;
     }

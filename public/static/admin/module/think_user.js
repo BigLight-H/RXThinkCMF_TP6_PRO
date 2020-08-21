@@ -73,10 +73,6 @@ layui.use(['function', 'form'], function () {
                     return '<span class="layui-btn ' + cls + ' layui-btn-xs">'+d.source_name+'</span>';
                 }}
             , {field: 'create_time', width: 180, title: '注册时间', align: 'center',templet:'<div>{{ layui.util.toDateString(d.create_time, "yyyy-MM-dd HH:mm:ss") }}</div>'}
-            , {field: 'login_time', width: 180, title: '最近登录时间', align: 'center',templet:'<div>{{ layui.util.toDateString(d.login_time, "yyyy-MM-dd HH:mm:ss") }}</div>'}
-            , {field: 'login_ip', width: 100, title: '最近登录IP', align: 'center'}
-            , {field: 'login_region', width: 130, title: '上次登录地点', align: 'center'}
-            , {field: 'login_count', width: 100, title: '登录总次数', align: 'center'}
             , {fixed: 'right', width: 150, title: '功能操作', align: 'left', toolbar: '#toolBar'}
         ];
 

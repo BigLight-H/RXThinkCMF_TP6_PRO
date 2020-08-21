@@ -25,7 +25,7 @@ layui.use(['function', 'admin', 'zTree'], function () {
 
         //【渲染TABLE】
         func.tableIns(cols, "tableList", function (layEvent, data) {
-            if (layEvent === 'role') {
+            if (layEvent === 'permission') {
                 admin.open({
                     title: '角色权限分配',
                     btn: ['保存', '取消'],

@@ -102,7 +102,11 @@ class MenuService extends BaseService
                     $data = [];
                     if ($val == 1) {
                         // 列表
+                        $funcInfo = $menuMod->where("pid", $result)
+                            ->where("name", "列表")
+                            ->find();
                         $data = [
+                            'id' => isset($funcInfo['id']) ? intval($funcInfo['id']) : 0,
                             'name' => "列表",
                             'url' => "/{$module}/list",
                             'permission' => "sys:{$module}:list",
@@ -114,7 +118,11 @@ class MenuService extends BaseService
                         ];
                     } else if ($val == 5) {
                         // 添加
+                        $funcInfo = $menuMod->where("pid", $result)
+                            ->where("name", "添加")
+                            ->find();
                         $data = [
+                            'id' => isset($funcInfo['id']) ? intval($funcInfo['id']) : 0,
                             'name' => "添加",
                             'url' => "/{$module}/edit",
                             'permission' => "sys:{$module}:add",
@@ -126,7 +134,11 @@ class MenuService extends BaseService
                         ];
                     } else if ($val == 10) {
                         // 修改
+                        $funcInfo = $menuMod->where("pid", $result)
+                            ->where("name", "修改")
+                            ->find();
                         $data = [
+                            'id' => isset($funcInfo['id']) ? intval($funcInfo['id']) : 0,
                             'name' => "修改",
                             'url' => "/{$module}/edit",
                             'permission' => "sys:{$module}:edit",
@@ -138,7 +150,11 @@ class MenuService extends BaseService
                         ];
                     } else if ($val == 15) {
                         // 删除
+                        $funcInfo = $menuMod->where("pid", $result)
+                            ->where("name", "删除")
+                            ->find();
                         $data = [
+                            'id' => isset($funcInfo['id']) ? intval($funcInfo['id']) : 0,
                             'name' => "删除",
                             'url' => "/{$module}/drop",
                             'permission' => "sys:{$module}:drop",
@@ -150,7 +166,11 @@ class MenuService extends BaseService
                         ];
                     } else if ($val == 20) {
                         // 详情
+                        $funcInfo = $menuMod->where("pid", $result)
+                            ->where("name", "详情")
+                            ->find();
                         $data = [
+                            'id' => isset($funcInfo['id']) ? intval($funcInfo['id']) : 0,
                             'name' => "详情",
                             'url' => "/{$module}/detail",
                             'permission' => "sys:{$module}:detail",
@@ -162,10 +182,78 @@ class MenuService extends BaseService
                         ];
                     } else if ($val == 25) {
                         // 状态
+                        $funcInfo = $menuMod->where("pid", $result)
+                            ->where("name", "状态")
+                            ->find();
                         $data = [
+                            'id' => isset($funcInfo['id']) ? intval($funcInfo['id']) : 0,
                             'name' => "状态",
                             'url' => "/{$module}/setStatus",
                             'permission' => "sys:{$module}:status",
+                            'pid' => $result,
+                            'type' => 4,
+                            'status' => 1,
+                            'is_public' => 2,
+                            'sort' => $val,
+                        ];
+                    } else if ($val == 30) {
+                        // 批量删除
+                        $funcInfo = $menuMod->where("pid", $result)
+                            ->where("name", "批量删除")
+                            ->find();
+                        $data = [
+                            'id' => isset($funcInfo['id']) ? intval($funcInfo['id']) : 0,
+                            'name' => "批量删除",
+                            'url' => "/{$module}/batchDrop",
+                            'permission' => "sys:{$module}:batchDrop",
+                            'pid' => $result,
+                            'type' => 4,
+                            'status' => 1,
+                            'is_public' => 2,
+                            'sort' => $val,
+                        ];
+                    } else if ($val == 35) {
+                        // 添加子级
+                        $funcInfo = $menuMod->where("pid", $result)
+                            ->where("name", "添加子级")
+                            ->find();
+                        $data = [
+                            'id' => isset($funcInfo['id']) ? intval($funcInfo['id']) : 0,
+                            'name' => "添加子级",
+                            'url' => "/{$module}/addz",
+                            'permission' => "sys:{$module}:addz",
+                            'pid' => $result,
+                            'type' => 4,
+                            'status' => 1,
+                            'is_public' => 2,
+                            'sort' => $val,
+                        ];
+                    } else if ($val == 40) {
+                        // 全部展开
+                        $funcInfo = $menuMod->where("pid", $result)
+                            ->where("name", "全部展开")
+                            ->find();
+                        $data = [
+                            'id' => isset($funcInfo['id']) ? intval($funcInfo['id']) : 0,
+                            'name' => "全部展开",
+                            'url' => "/{$module}/expand",
+                            'permission' => "sys:{$module}:expand",
+                            'pid' => $result,
+                            'type' => 4,
+                            'status' => 1,
+                            'is_public' => 2,
+                            'sort' => $val,
+                        ];
+                    } else if ($val == 45) {
+                        // 全部展开
+                        $funcInfo = $menuMod->where("pid", $result)
+                            ->where("name", "全部折叠")
+                            ->find();
+                        $data = [
+                            'id' => isset($funcInfo['id']) ? intval($funcInfo['id']) : 0,
+                            'name' => "全部折叠",
+                            'url' => "/{$module}/collapse",
+                            'permission' => "sys:{$module}:collapse",
                             'pid' => $result,
                             'type' => 4,
                             'status' => 1,

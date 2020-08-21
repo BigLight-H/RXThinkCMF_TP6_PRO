@@ -11,6 +11,7 @@
 
 namespace app\common\controller;
 
+use app\admin\model\AdminRom;
 use app\admin\model\Menu;
 use app\common\model\system\Admin;
 use think\App;
@@ -53,8 +54,8 @@ class Backend extends CommonBase
         // 登录验证
         $this->checkLogin();
 
-//        // 权限验证
-//        $this->checkAuth();
+        // 权限验证
+        $this->checkAuth();
 
     }
 
@@ -105,7 +106,6 @@ class Backend extends CommonBase
         // 数据绑定
         View::assign("adminId", $this->adminId);
         View::assign("adminInfo", $this->adminInfo);
-        $this->permission = $this->adminInfo['permission'];
     }
 
     /**
@@ -159,18 +159,10 @@ class Backend extends CommonBase
                 return $this->render('public/404');
             }
 
-            // 获取节点操作权限
-            $funcArr = isset($this->permission[$menuInfo['id']]) ? $this->permission[$menuInfo['id']] : [];
-            $funcList = [];
-            if (is_array($funcArr)) {
-                $keys = array_values($funcArr);
-                // 加入当前菜单
-                $keys[] = $menuInfo['id'];
-                $funcList = $menuMod->where([
-                    ['id', 'in', $keys]
-                ])->column('permission');
-            }
-            $this->assign('funcList', $funcList);
+            // 获取节点权限
+            $adminRomMod = new AdminRom();
+            $funcList = $adminRomMod->getPermissionFuncList($this->adminInfo['role_ids'], $this->adminId, $menuInfo['id']);
+            View::assign("funcList", $funcList);
             if (!in_array($menuInfo['permission'], $funcList)) {
                 if (IS_POST) {
                     return message('暂无操作权限', false);

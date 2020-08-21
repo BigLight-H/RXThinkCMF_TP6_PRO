@@ -80,11 +80,6 @@ class Admin extends BaseModel
                     $info['district_name'] = $cityItem[2];
                 }
             }
-
-            // 获取人员权限
-            $adminRomMod = new AdminRom();
-            $permissionList = $adminRomMod->getPermissionList($id);
-            $info['permission'] = $permissionList;
         }
         return $info;
     }
