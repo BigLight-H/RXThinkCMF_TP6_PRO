@@ -12,12 +12,12 @@
 <div class="layui-input-block">
 	<div class="layui-upload-drag">
 		<a href="<?php echo $imgUrl;?>" target="black">
-			<img id="{$name}_show_id" src="<?php echo $imgUrl;?>" alt="上传{$title}" title="上传{$title}" width="{$imgWidth}" height="{$imgHeight}">
+			<img id="<?php echo $name?>_show_id" src="<?php echo $imgUrl;?>" alt="上传{$title}" title="上传{$title}" width="{$imgWidth}" height="{$imgHeight}">
 		</a>
-	 	<input type="hidden" id="{$name}" name="{$name}" value="<?php echo $imgUrl;?>">
+	 	<input type="hidden" id="<?php echo $name?>" name="<?php echo $name?>" value="<?php echo $imgUrl;?>">
 	</div>
 	<div style="margin-top:10px;">
-		<button type="button" class="layui-btn" id="btnUploadImg_{$name}"><i class="layui-icon">&#xe67c;</i>上传{$title}</button>
+		<button type="button" class="layui-btn" id="btnUploadImg_<?php echo $name?>"><i class="layui-icon">&#xe67c;</i>上传{$title}</button>
 	</div>
 	{if $showTips neq null}
 	<div class="layui-form-mid layui-word-aux">建议尺寸：{$showTips}</div>
@@ -35,8 +35,8 @@ layui.use(['upload','croppers'],function(){
 		
 		//图片裁剪组件
 	    croppers.render({
-	        elem: '#btnUploadImg_{$name}'
-	        ,name:"{$name}"
+	        elem: '#btnUploadImg_<?php echo $name?>'
+	        ,name:"<?php echo $name?>"
 	        ,saveW:{$cropWidth}     //保存宽度
 	        ,saveH:{$cropHeight}
 	        ,mark:{$cropRate}    //选取比例
@@ -44,8 +44,8 @@ layui.use(['upload','croppers'],function(){
 	        ,url: "/upload/uploadImage"
 	        ,done: function(url){
 	        	//上传完毕回调
-	            $('#{$name}').val(url);
-	            $('#{$name}_show_id').attr('src',url);
+	            $('#<?php echo $name?>').val(url);
+	            $('#<?php echo $name?>_show_id').attr('src',url);
 	        }
 	    });
 		
@@ -55,7 +55,7 @@ layui.use(['upload','croppers'],function(){
 		 * 普通图片上传
 		 */
 		var uploadInst = upload.render({
-		    elem: '#btnUploadImg_{$name}'
+		    elem: '#btnUploadImg_<?php echo $name?>'
 			,url: "/upload/uploadImage"
 			,accept:'images'
 			,acceptMime:'image/*'
@@ -74,8 +74,8 @@ layui.use(['upload','croppers'],function(){
 				}
 
 				//上传成功
-				$('#{$name}_show_id').attr('src', res.data);
-	    		$('#{$name}').val(res.data);
+				$('#<?php echo $name?>_show_id').attr('src', res.data);
+	    		$('#<?php echo $name?>').val(res.data);
 			}
 			,error: function(){
 				//请求异常回调

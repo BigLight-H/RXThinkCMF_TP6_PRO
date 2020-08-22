@@ -35,4 +35,32 @@ class Dep extends Backend
         $this->model = new \app\admin\model\Dep();
         $this->service = new DepService();
     }
+
+    /**
+     * 删除单条记录
+     * @return array
+     * @author 牧羊人
+     * @date 2019/2/25
+     */
+    public function drop()
+    {
+        if (IS_POST) {
+            $id = input('post.id');
+            $info = $this->model->getInfo($id);
+            if ($info) {
+                // 有子级存在则不予删除
+                $count = $this->model->getCount([
+                    ['pid', '=', $info['id']],
+                ]);
+                if ($count > 0) {
+                    return message("有子级存在，不允许删除", false);
+                }
+                $result = $this->model->drop($id);
+                if ($result !== false) {
+                    return message();
+                }
+            }
+            return message($this->model->getError(), false);
+        }
+    }
 }

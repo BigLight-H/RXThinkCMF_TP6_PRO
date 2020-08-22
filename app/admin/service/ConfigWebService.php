@@ -58,9 +58,11 @@ class ConfigWebService extends BaseService
             } elseif (strpos($key, 'upimage')) {
                 $item = explode('__', $key);
                 $key = $item[0];
-                if (strpos($val, "temp")) {
+                if (strpos($val, "temp") !== false) {
                     //新上传图片
                     $val = save_image($val, 'config');
+                } else {
+                    $val = str_replace(IMG_URL, "", $val);
                 }
             } elseif (strpos($key, 'upimgs')) {
                 $item = explode('__', $key);

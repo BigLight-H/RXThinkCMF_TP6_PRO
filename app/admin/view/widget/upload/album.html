@@ -29,12 +29,12 @@
 		display: inline-block;
 	}
 </style>
+
 <?php echo $albumList;?>
 
-
-<div class="layui-upload-drag img_upload_{$albumName}">
- 	<img id="btnUploadImg_{$albumName}" src="__ADMIN__/assets/images/default_upload.png" alt="上传{$albumTitle}" title="上传{$albumTitle}" width="{$albumWidth}" height="{$albumHeight}">
- 	<input type="hidden" id="{$albumName}" name="{$albumName}" value="">
+<div class="layui-upload-drag img_upload_<?php echo $albumName?>">
+ 	<img id="btnUploadImg_<?php echo $albumName?>" src="__ADMIN__/assets/images/default_upload.png" alt="上传{$albumTitle}" title="上传{$albumTitle}" width="{$albumWidth}" height="{$albumHeight}">
+ 	<input type="hidden" id="<?php echo $albumName?>" name="<?php echo $albumName?>" value="">
 </div>
 
 <script type="text/javascript">
@@ -48,17 +48,17 @@ layui.use(['upload', 'croppers'],function(){
 
 	// 初始化图片隐藏域
 	var ids = '';
-	$('img[name="img_src_{$albumName}"]').each(function(){
+	$('img[name="img_src_<?php echo $albumName?>"]').each(function(){
 		ids += $(this).attr('src') + ","
 	});
 	ids = ids.substr(0, (ids.length - 1));
-	$("#{$albumName}").val(ids);
+	$("#<?php echo $albumName?>").val(ids);
 
 	if({$isCrop}==1) {
 		// 图片裁剪组件
 		croppers.render({
-			elem: '#btnUploadImg_{$albumName}'
-			,name:"{$albumName}"
+			elem: '#btnUploadImg_<?php echo $albumName?>'
+			,name:"<?php echo $albumName?>"
 			,saveW:{$cropWidth}     //保存宽度
 			,saveH:{$cropHeight}
 			,mark:{$cropRate}    //选取比例
@@ -70,7 +70,7 @@ layui.use(['upload', 'croppers'],function(){
 					return layer.msg('上传失败');
 				}
 
-				var hideStr = $("#{$albumName}").attr("value");
+				var hideStr = $("#<?php echo $albumName?>").attr("value");
 				var itemArr = hideStr.split(',');
 				if(itemArr.length>="{$albumNum}"){
 					layer.msg("最多上传{$albumNum}张图片",{ icon: 5,time: 1000}, function () {
@@ -81,23 +81,23 @@ layui.use(['upload', 'croppers'],function(){
 
 				// 渲染界面
 				var attStr = '<div class="layui-upload-drag">'+
-						'<div class="del_img" onclick="remove_image_{$albumName}(this);">'+
+						'<div class="del_img" onclick="remove_image_<?php echo $albumName?>(this);">'+
 						'<img src="__ADMIN__/assets/images/delete.png"></img>'+
 						'</div>'+
 						'<a href="'+url+'" target="_blank">'+
-						'<img name="img_src_{$albumName}" src="'+url+'" alt="{$albumTips}(点击放大预览)" title="{$albumTips}(点击放大预览)" width="{$albumWidth}" height="{$albumHeight}">'+
+						'<img name="img_src_<?php echo $albumName?>" src="'+url+'" alt="{$albumTips}(点击放大预览)" title="{$albumTips}(点击放大预览)" width="{$albumWidth}" height="{$albumHeight}">'+
 						'</a>'+
 						'</div>';
-				$(".img_upload_{$albumName}").before(attStr);
+				$(".img_upload_<?php echo $albumName?>").before(attStr);
 
 				// 获取最新的图集
 				var ids = '';
-				$('img[name="img_src_{$albumName}"]').each(function(){
+				$('img[name="img_src_<?php echo $albumName?>"]').each(function(){
 					ids += $(this).attr('src') + ","
 				});
 				ids = ids.substr(0, (ids.length - 1));
 				// 给隐藏域赋值
-				$("#{$albumName}").val(ids);
+				$("#<?php echo $albumName?>").val(ids);
 
 				return false;
 			}
@@ -107,7 +107,7 @@ layui.use(['upload', 'croppers'],function(){
 		 * 普通图片上传
 		 */
 		var uploadInst = upload.render({
-			elem: '#btnUploadImg_{$albumName}'
+			elem: '#btnUploadImg_<?php echo $albumName?>'
 			,url: "/upload/uploadImage"
 			,accept:'images'
 			,acceptMime:'image/*'
@@ -123,7 +123,7 @@ layui.use(['upload', 'croppers'],function(){
 			,done: function(res){
 				//上传完毕回调
 
-				var hideStr = $("#{$albumName}").attr("value");
+				var hideStr = $("#<?php echo $albumName?>").attr("value");
 				var itemArr = hideStr.split(',');
 				if(itemArr.length>={$albumNum}){
 					layer.msg("最多上传{$albumNum}张图片",{ icon: 5,time: 1000}, function () {
@@ -139,23 +139,23 @@ layui.use(['upload', 'croppers'],function(){
 
 				//渲染界面
 				var attStr = '<div class="layui-upload-drag">'+
-						'<div class="del_img" onclick="remove_image_{$albumName}(this);">'+
+						'<div class="del_img" onclick="remove_image_<?php echo $albumName?>(this);">'+
 						'<img src="__ADMIN__/assets/images/delete.png"></img>'+
 						'</div>'+
 						'<a href="'+res.data+'" target="_blank">'+
-						'<img name="img_src_{$albumName}" src="'+res.data+'" alt="{$albumTitle}(点击放大预览)" title="{$albumTitle}(点击放大预览)" width="{$albumWidth}" height="{$albumHeight}">'+
+						'<img name="img_src_<?php echo $albumName?>" src="'+res.data+'" alt="{$albumTitle}(点击放大预览)" title="{$albumTitle}(点击放大预览)" width="{$albumWidth}" height="{$albumHeight}">'+
 						'</a>'+
 						'</div>';
-				$(".img_upload_{$albumName}").before(attStr);
+				$(".img_upload_<?php echo $albumName?>").before(attStr);
 
 				//获取最新的图集
 				var ids = '';
-				$('img[name="img_src_{$albumName}"]').each(function(){
+				$('img[name="img_src_<?php echo $albumName?>"]').each(function(){
 					ids += $(this).attr('src') + ","
 				});
 				ids = ids.substr(0, (ids.length - 1));
 				//给隐藏域赋值
-				$("#{$albumName}").val(ids);
+				$("#<?php echo $albumName?>").val(ids);
 
 				return false;
 			}
@@ -168,18 +168,18 @@ layui.use(['upload', 'croppers'],function(){
 });
 
 // 删除图片
-function remove_image_{$albumName}(obj) {
+function remove_image_<?php echo $albumName?>(obj) {
 	//obj.remove();
 	layui.$(obj).parent().remove();
 
 	//获取最新的图集
 	var ids = '';
-	layui.$('img[name="img_src_{$albumName}"]').each(function(){
+	layui.$('img[name="img_src_<?php echo $albumName?>"]').each(function(){
 		ids += layui.$(this).attr('src') + ","
 	});
 	ids = ids.substr(0, (ids.length - 1));
 	//给隐藏域赋值
-	layui.$("#{$albumName}").val(ids);
+	layui.$("#<?php echo $albumName?>").val(ids);
 }
 
 </script>

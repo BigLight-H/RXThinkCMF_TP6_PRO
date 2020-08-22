@@ -45,7 +45,7 @@ layui.use(['function', 'form'], function () {
         func.tableIns(cols, "tableList", null, url);
 
         //【设置弹框】
-        func.setWin("配置项", 700, 650);
+        func.setWin("配置项");
 
     }
 });

@@ -105,7 +105,7 @@ textarea{ display:block;}
 	};
 	
 	KindEditor.ready(function(K) {
-		editor = K.create('textarea[name="{$kindeditorId}"]', options);
+		editor = K.create('textarea[name="<?php echo $kindeditorId?>"]', options);
 	});
 })();
 </script>

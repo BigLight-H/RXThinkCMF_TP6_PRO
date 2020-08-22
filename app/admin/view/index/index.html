@@ -87,7 +87,7 @@
             <ul class="layui-nav layui-nav-tree {if $key > 0}layui-hide{/if}" nav-id="xt{$key+1}" lay-filter="admin-side-nav" lay-shrink="_all" style="margin: 15px 0;">
                 {foreach name='val.children' item='vo' key='ko'}
                 <li  class="layui-nav-item">
-                    <a><i class="layui-icon layui-icon-set"></i>&emsp;<cite>{$vo.name}</cite></a>
+                    <a><i class="layui-icon {$vo.icon}"></i>&emsp;<cite>{$vo.name}</cite></a>
                     <dl class="layui-nav-child">
                         {foreach name='vo.children' item='v' key='k'}
                         <dd><a lay-href="{$v.url}">{$v.name}</a></dd>
