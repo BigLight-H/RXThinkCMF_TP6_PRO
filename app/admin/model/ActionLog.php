@@ -113,19 +113,34 @@ class ActionLog extends BaseModel
      */
     public static function record()
     {
+        if (!self::$title) {
+            // 操作控制器名
+            $menuMod = new Menu();
+            $info = $menuMod->getOne([
+                ['url', '=', request()->url()],
+            ]);
+            if ($info) {
+                if ($info['type'] == 4) {
+                    $menuInfo = $menuMod->getInfo($info['pid']);
+                    self::$title = $menuInfo['name'];
+                } else {
+                    self::$title = $info['name'];
+                }
+            }
+        }
         // 日志数据
         $data = [
             'username' => '相约在冬季',
-            'module' => request()->module(),
+            'module' => app('http')->getName(),
             'action' => request()->url(),
             'method' => request()->method(),
             'url' => request()->url(true), // 获取完成URL
             'param' => request()->param() ? json_encode(request()->param()) : '',
-            'title' => self::$title,
+            'title' => self::$title ? self::$title : '操作日志',
             'content' => self::$content,
             'ip' => request()->ip(),
             'user_agent' => request()->server('HTTP_USER_AGENT'),
-            'create_user' => get_uid(),
+            'create_user' => empty(session('adminId')) ? 0 : session('adminId'),
             'create_time' => time(),
         ];
         // 日志入库

@@ -11,6 +11,7 @@
 
 namespace app\admin\service;
 
+use app\admin\model\ActionLog;
 use app\admin\model\Admin;
 use app\common\service\BaseService;
 
@@ -85,8 +86,8 @@ class LoginService extends BaseService
             return message("您的帐号已被禁用", false);
         }
 
-//        // 设置日志标题
-//        ActionLog::setTitle("系统登录");
+        // 设置日志标题
+        ActionLog::setTitle("系统登录");
 
         // 本地SESSION存储登录信息
         session('adminId', $info['id']);

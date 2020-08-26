@@ -308,6 +308,31 @@ if (!function_exists('datetime')) {
 
 }
 
+if (!function_exists('data_auth_sign')) {
+
+    /**
+     * 数字签名认证
+     * @param $data 签名认证数据
+     * @return string
+     * @author 牧羊人
+     * @date 2019/2/1
+     */
+    function data_auth_sign($data)
+    {
+        //数据类型检测
+        if (!is_array($data)) {
+            $data = (array)$data;
+        }
+        // 排序
+        ksort($data);
+        // url编码并生成query字符串
+        $code = http_build_query($data);
+        //生成签名
+        $sign = sha1($code);
+        return $sign;
+    }
+}
+
 if (!function_exists('decrypt')) {
 
     /**
@@ -727,6 +752,25 @@ if (!function_exists('get_image_url')) {
         return IMG_URL . $image_url;
     }
 
+}
+
+if (!function_exists('get_uid')) {
+
+    /**
+     * 获取管理员登录ID
+     * @return bool
+     * @author 牧羊人
+     * @date 2019/2/1
+     */
+    function get_uid()
+    {
+        $adminInfo = session('adminInfo');
+        if (session('admin_auth_sign') == data_auth_sign($adminInfo)) {
+            return $adminInfo['uid'];
+        } else {
+            return false;
+        }
+    }
 }
 
 if (!function_exists('is_email')) {

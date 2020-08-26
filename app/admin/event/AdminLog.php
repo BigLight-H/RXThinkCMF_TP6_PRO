@@ -11,6 +11,8 @@
 
 namespace app\admin\event;
 
+use app\admin\model\ActionLog;
+
 /**
  * 登录事件
  *
@@ -29,7 +31,7 @@ class AdminLog
     public function handle()
     {
         if (request()->isPost()) {
-//            \app\common\model\AdminLog::record();
+            ActionLog::record();
         }
     }
 }

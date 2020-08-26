@@ -102,6 +102,7 @@ class MenuService extends BaseService
                     $data = [];
                     if ($val == 1) {
                         // 列表
+                        $menuMod = new Menu();
                         $funcInfo = $menuMod->where("pid", $result)
                             ->where("name", "列表")
                             ->find();
@@ -118,6 +119,7 @@ class MenuService extends BaseService
                         ];
                     } else if ($val == 5) {
                         // 添加
+                        $menuMod = new Menu();
                         $funcInfo = $menuMod->where("pid", $result)
                             ->where("name", "添加")
                             ->find();
@@ -134,6 +136,7 @@ class MenuService extends BaseService
                         ];
                     } else if ($val == 10) {
                         // 修改
+                        $menuMod = new Menu();
                         $funcInfo = $menuMod->where("pid", $result)
                             ->where("name", "修改")
                             ->find();
@@ -150,6 +153,7 @@ class MenuService extends BaseService
                         ];
                     } else if ($val == 15) {
                         // 删除
+                        $menuMod = new Menu();
                         $funcInfo = $menuMod->where("pid", $result)
                             ->where("name", "删除")
                             ->find();
@@ -166,6 +170,7 @@ class MenuService extends BaseService
                         ];
                     } else if ($val == 20) {
                         // 详情
+                        $menuMod = new Menu();
                         $funcInfo = $menuMod->where("pid", $result)
                             ->where("name", "详情")
                             ->find();
@@ -182,6 +187,7 @@ class MenuService extends BaseService
                         ];
                     } else if ($val == 25) {
                         // 状态
+                        $menuMod = new Menu();
                         $funcInfo = $menuMod->where("pid", $result)
                             ->where("name", "状态")
                             ->find();
@@ -198,6 +204,7 @@ class MenuService extends BaseService
                         ];
                     } else if ($val == 30) {
                         // 批量删除
+                        $menuMod = new Menu();
                         $funcInfo = $menuMod->where("pid", $result)
                             ->where("name", "批量删除")
                             ->find();
@@ -214,6 +221,7 @@ class MenuService extends BaseService
                         ];
                     } else if ($val == 35) {
                         // 添加子级
+                        $menuMod = new Menu();
                         $funcInfo = $menuMod->where("pid", $result)
                             ->where("name", "添加子级")
                             ->find();
@@ -230,6 +238,7 @@ class MenuService extends BaseService
                         ];
                     } else if ($val == 40) {
                         // 全部展开
+                        $menuMod = new Menu();
                         $funcInfo = $menuMod->where("pid", $result)
                             ->where("name", "全部展开")
                             ->find();
@@ -246,6 +255,7 @@ class MenuService extends BaseService
                         ];
                     } else if ($val == 45) {
                         // 全部展开
+                        $menuMod = new Menu();
                         $funcInfo = $menuMod->where("pid", $result)
                             ->where("name", "全部折叠")
                             ->find();

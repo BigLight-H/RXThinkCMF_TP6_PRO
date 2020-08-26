@@ -11,6 +11,7 @@
 
 namespace app\admin\controller;
 
+use app\admin\model\ActionLog;
 use app\admin\service\LoginService;
 use app\common\controller\Backend;
 use think\View;
@@ -70,6 +71,9 @@ class Login extends Backend
     {
         // 清空SESSION
         session('adminId', null);
+        // 记录退出日志
+        ActionLog::setTitle("系统退出");
+        ActionLog::record();
         // 跳转登录页
         return redirect(url('/login/index'));
     }
